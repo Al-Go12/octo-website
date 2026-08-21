@@ -1,26 +1,82 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --font-suisse: "Suisse Intl", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --brand-red: #c8102e;
+    --brand-red-dark: #a80c24;
+    --bg-light: #fafafa;
+    --bg-dark: #121212;
+    --text-primary: #171717;
+    --text-secondary: #525252;
+  }
+
+  html {
+    scroll-behavior: auto !important;
+    background-color: var(--bg-light);
+    color: var(--text-primary);
+    font-family: var(--font-suisse);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    font-family: var(--font-suisse);
+    overflow-x: hidden;
+    cursor: default;
+  }
+
+  h1, h2, h3, h4, h5, h6, p, span, button, a, div {
+    font-family: var(--font-suisse);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Custom Lenis Smooth Scroll Overrides */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+/* Custom Red & Dark Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #171717;
+}
+::-webkit-scrollbar-thumb {
+  background: #c8102e;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #e11d48;
+}
+
+/* No Scrollbar Utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Custom Grid Pattern Background */
+.bg-grid-pattern {
+  background-image: radial-gradient(rgba(200, 16, 46, 0.08) 1px, transparent 1px);
+  background-size: 32px 32px;
 }
