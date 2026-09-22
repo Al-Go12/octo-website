@@ -57,10 +57,20 @@ export default function BrandTrust() {
   return (
     <section
       ref={sectionRef}
-      className="relative z-40 -mt-12 sm:-mt-16 py-24 px-4 sm:px-8 lg:px-12 bg-white text-[#171717] rounded-t-[3rem] sm:rounded-t-[4rem] overflow-hidden"
+      className="relative py-24 lg:py-28 px-4 sm:px-8 lg:px-12 bg-white text-[#171717] border-t border-slate-200 overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto flex flex-col gap-12 text-center">
-        <div className="flex flex-col items-center gap-2">
+      <div className="max-w-7xl mx-auto flex flex-col gap-12">
+        {/* Sleek Top Section Identifier Bar */}
+        <div className="flex items-center justify-between pb-6 border-b border-slate-200 text-[11px] font-mono tracking-widest text-slate-500 uppercase">
+          <div className="flex items-center gap-2">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#c8102e]" />
+            <span className="font-bold text-[#c8102e]">04 //</span>
+            <span>CLIENT ECOSYSTEM</span>
+          </div>
+          <span className="hidden sm:inline-block text-slate-400">GLOBAL ENTERPRISE PARTNERS</span>
+        </div>
+
+        <div className="flex flex-col items-center gap-2 text-center">
           <span className="text-xs font-bold uppercase tracking-widest text-[#c8102e]">
             CLIENTS WE WORK WITH
           </span>
@@ -89,3 +99,5 @@ export default function BrandTrust() {
     </section>
   );
 }
+
+

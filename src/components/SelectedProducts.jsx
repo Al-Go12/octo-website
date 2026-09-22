@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { ArrowUpRight, Sparkles } from "lucide-react";
@@ -181,24 +182,46 @@ export default function SelectedProducts({ onInquireProduct }) {
     const ctx = gsap.context(() => {
       gsap.fromTo(
         ".cuberto-project-card",
-        { y: 30, opacity: 0 },
+        { y: 50, opacity: 0 },
         {
           y: 0,
           opacity: 1,
-          stagger: 0.1,
-          duration: 0.8,
+          stagger: 0.12,
+          duration: 0.9,
           ease: "power3.out",
           clearProps: "all",
           scrollTrigger: {
             trigger: containerRef.current,
-            start: "top 85%",
+            start: "top 80%",
           },
         }
       );
+
+      // Scroll reveal zoom for product images
+      gsap.utils.toArray(".product-img-box").forEach((box) => {
+        const img = box.querySelector("img");
+        if (img) {
+          gsap.fromTo(
+            img,
+            { scale: 1.2 },
+            {
+              scale: 1,
+              ease: "none",
+              scrollTrigger: {
+                trigger: box,
+                start: "top 90%",
+                end: "bottom 20%",
+                scrub: true,
+              },
+            }
+          );
+        }
+      });
     }, containerRef);
 
     return () => ctx.revert();
   }, [selectedFilter]);
+
 
   const filteredProducts =
     selectedFilter === "ALL PRODUCTS"
@@ -211,20 +234,30 @@ export default function SelectedProducts({ onInquireProduct }) {
     <section
       id="products"
       ref={containerRef}
-      className="relative z-30 -mt-12 sm:-mt-16 py-28 px-4 sm:px-8 lg:px-12 bg-black text-white rounded-t-[3rem] sm:rounded-t-[4rem] overflow-hidden"
+      className="relative py-28 lg:py-32 px-4 sm:px-8 lg:px-12 bg-[#f6f4ee] text-[#171717] border-t border-[#e2dcd2] overflow-hidden"
     >
       <div className="max-w-7xl mx-auto">
+        {/* Sleek Top Section Identifier Bar */}
+        <div className="flex items-center justify-between pb-6 mb-16 border-b border-[#e2dcd2] text-[11px] font-mono tracking-widest text-slate-500 uppercase">
+          <div className="flex items-center gap-2">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#c8102e]" />
+            <span className="font-bold text-[#c8102e]">03 //</span>
+            <span>PROPRIETARY SYSTEMS</span>
+          </div>
+          <span className="hidden sm:inline-block text-slate-400">SOFTWARE PLATFORMS</span>
+        </div>
+
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <div className="flex flex-col gap-2">
             <span className="text-xs font-bold uppercase tracking-widest text-[#c8102e]">
               PROPRIETARY PRODUCTS
             </span>
-            <h2 className="text-4xl sm:text-6xl font-extrabold text-white tracking-tight leading-tight">
+            <h2 className="text-4xl sm:text-6xl font-extrabold text-[#171717] tracking-tight leading-tight">
               Engineered for <span className="text-[#c8102e]">impact</span>
             </h2>
           </div>
-          <p className="text-slate-300 text-base max-w-md leading-relaxed font-normal">
+          <p className="text-slate-700 text-base max-w-md leading-relaxed font-normal">
             Discover our unique offerings: Custom software, broadcast engines, CRM systems, and customer reward platforms engineered by OctoSignals.
           </p>
         </div>
@@ -235,10 +268,10 @@ export default function SelectedProducts({ onInquireProduct }) {
             <button
               key={cat}
               onClick={() => setSelectedFilter(cat)}
-              className={`px-5 py-2.5 rounded-full text-xs font-bold tracking-wider uppercase whitespace-nowrap transition-all duration-300 ${
+              className={`px-5 py-2.5 rounded-full text-xs font-bold tracking-wider uppercase whitespace-nowrap transition-all duration-300 cursor-pointer ${
                 selectedFilter === cat
                   ? "bg-[#c8102e] text-white shadow-md shadow-[#c8102e]/25"
-                  : "bg-white/10 text-slate-300 hover:bg-white/20 border border-white/10"
+                  : "bg-white text-slate-700 hover:bg-slate-100 border border-[#e2ded6] shadow-sm"
               }`}
             >
               {cat}
@@ -258,7 +291,8 @@ export default function SelectedProducts({ onInquireProduct }) {
               data-cursor-label="EXPLORE"
             >
               {/* Standalone Rounded Image Box */}
-              <div className="w-full h-80 sm:h-[420px] relative rounded-3xl overflow-hidden shadow-2xl bg-black border border-white/10">
+              <div className="product-img-box w-full h-80 sm:h-[420px] relative rounded-3xl overflow-hidden shadow-xl bg-white border border-[#e2ded6]">
+
                 <img
                   src={prod.image}
                   alt={prod.title}
@@ -269,12 +303,39 @@ export default function SelectedProducts({ onInquireProduct }) {
 
               {/* Text Description Below Image */}
               <div className="mt-4 sm:mt-5 px-1">
-                <p className="text-base sm:text-lg text-slate-200 group-hover:text-white transition-colors leading-relaxed font-normal">
+                <p className="text-base sm:text-lg text-slate-800 group-hover:text-[#c8102e] transition-colors leading-relaxed font-normal">
                   {prod.description}
                 </p>
               </div>
             </button>
           ))}
+        </div>
+
+        {/* View Complete Products Suite CTA Banner */}
+        <div className="mt-20 p-8 sm:p-12 rounded-3xl bg-white border border-[#e8e4dc] shadow-sm flex flex-col sm:flex-row items-center justify-between gap-6">
+          <div className="flex flex-col gap-2 text-center sm:text-left">
+            <div className="inline-flex items-center gap-2 justify-center sm:justify-start">
+              <Sparkles className="w-4 h-4 text-[#c8102e]" />
+              <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#c8102e]">
+                PROPRIETARY SOFTWARE SUITE
+              </span>
+            </div>
+            <h3 className="text-2xl sm:text-4xl font-extrabold text-[#171717]">
+              Explore Our Complete Product Catalog
+            </h3>
+            <p className="text-slate-600 text-sm sm:text-base max-w-xl font-normal">
+              Dive into all 9 specialized proprietary platforms with in-depth feature breakdowns, technology specifications, and live demonstrations.
+            </p>
+          </div>
+
+          <Link
+            href="/products"
+            className="shrink-0 px-8 py-4 rounded-full bg-[#c8102e] hover:bg-[#171717] text-white text-xs font-bold uppercase tracking-widest transition-all duration-300 flex items-center gap-2 group shadow-xl shadow-[#c8102e]/30 cursor-pointer"
+            data-cursor="magnetic"
+          >
+            <span>View All Products</span>
+            <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          </Link>
         </div>
       </div>
 

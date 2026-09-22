@@ -13,11 +13,11 @@ export default function ContactModal({ isOpen, onClose, initialProduct = "" }) {
     message: "",
   });
 
-  useEffect(() => {
-    if (initialProduct) {
-      setFormData((prev) => ({ ...prev, productInterest: initialProduct }));
-    }
-  }, [initialProduct]);
+  const [prevInitial, setPrevInitial] = useState(initialProduct);
+  if (initialProduct !== prevInitial) {
+    setPrevInitial(initialProduct);
+    setFormData((prev) => ({ ...prev, productInterest: initialProduct }));
+  }
 
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -77,7 +77,7 @@ export default function ContactModal({ isOpen, onClose, initialProduct = "" }) {
             </div>
 
             <h3 className="text-3xl font-extrabold text-[#171717] mb-2">
-              Let's Build The Right Solution.
+              Let&apos;s Build The Right Solution.
             </h3>
             <p className="text-slate-600 text-xs sm:text-sm mb-6">
               Tell us about your project or technology requirement and our engineering team will get back to you promptly.

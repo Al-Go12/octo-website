@@ -15,23 +15,43 @@ export default function SmoothScroll({ children }) {
       orientation: "vertical",
       gestureOrientation: "vertical",
       smoothWheel: true,
-      wheelMultiplier: 1,
-      touchMultiplier: 2,
+      wheelMultiplier: 1.1,
+      touchMultiplier: 1.8,
+      infinite: false,
     });
 
     lenis.on("scroll", ScrollTrigger.update);
 
-    gsap.ticker.add((time) => {
+    const updateLenis = (time) => {
       lenis.raf(time * 1000);
-    });
+    };
 
+    gsap.ticker.add(updateLenis);
     gsap.ticker.lagSmoothing(0);
 
+    // Smooth scroll for internal anchor links (#)
+    const handleAnchorClick = (e) => {
+      const anchor = e.target.closest("a[href^='#']");
+      if (!anchor) return;
+      const targetId = anchor.getAttribute("href");
+      if (targetId && targetId !== "#") {
+        const targetEl = document.querySelector(targetId);
+        if (targetEl) {
+          e.preventDefault();
+          lenis.scrollTo(targetEl, { offset: -20, duration: 1.2 });
+        }
+      }
+    };
+
+    document.addEventListener("click", handleAnchorClick);
+
     return () => {
+      document.removeEventListener("click", handleAnchorClick);
+      gsap.ticker.remove(updateLenis);
       lenis.destroy();
-      gsap.ticker.remove(lenis.raf);
     };
   }, []);
 
   return <>{children}</>;
 }
+

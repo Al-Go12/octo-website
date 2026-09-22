@@ -76,7 +76,7 @@ export default function DomainExpertise() {
     <section
       id="domains"
       ref={containerRef}
-      className="relative z-50 -mt-12 sm:-mt-16 py-28 px-4 sm:px-8 lg:px-12 bg-[#fafafa] rounded-t-[3rem] sm:rounded-t-[4rem] lg:rounded-t-[5rem] shadow-[0_-25px_70px_rgba(0,0,0,0.06)] border-t border-slate-200/80 overflow-hidden"
+      className="relative z-50 py-28 lg:py-32 px-4 sm:px-8 lg:px-12 bg-[#fafafa] border-t border-slate-200 overflow-hidden"
     >
       <div className="max-w-7xl mx-auto">
         {/* Header */}

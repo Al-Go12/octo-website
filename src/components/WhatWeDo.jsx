@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { ArrowUpRight, CheckCircle2 } from "lucide-react";
@@ -127,14 +128,24 @@ export default function WhatWeDo() {
     <section
       id="services"
       ref={sectionRef}
-      className="relative z-20 -mt-12 sm:-mt-16 py-28 px-4 sm:px-8 lg:px-12 bg-white text-[#171717] rounded-t-[3rem] sm:rounded-t-[4rem] overflow-hidden"
+      className="relative py-28 lg:py-32 px-4 sm:px-8 lg:px-12 bg-white text-[#171717] border-t border-slate-200 overflow-hidden"
     >
       <div className="max-w-7xl mx-auto">
+        {/* Sleek Top Section Identifier Bar */}
+        <div className="flex items-center justify-between pb-6 mb-16 border-b border-slate-200 text-[11px] font-mono tracking-widest text-slate-500 uppercase">
+          <div className="flex items-center gap-2">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#c8102e]" />
+            <span className="font-bold text-[#c8102e]">02 //</span>
+            <span>CAPABILITIES & SERVICES</span>
+          </div>
+          <span className="hidden sm:inline-block text-slate-400">END-TO-END ENGINEERING</span>
+        </div>
+
         {/* Section Header */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16 items-start">
           <div className="lg:col-span-4 flex flex-col gap-2">
             <span className="text-xs font-bold uppercase tracking-widest text-[#c8102e]">
-              WHAT WE DO
+              SOLUTIONS DIRECTORY
             </span>
             <h2 className="text-4xl sm:text-6xl font-extrabold text-[#171717] tracking-tight leading-tight">
               Our Capabilities
@@ -233,6 +244,30 @@ export default function WhatWeDo() {
               </div>
             );
           })}
+        </div>
+
+        {/* View All Services CTA Banner */}
+        <div className="mt-16 p-8 sm:p-10 rounded-3xl bg-slate-50 border border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-sm">
+          <div className="flex flex-col gap-2 text-center sm:text-left">
+            <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#c8102e]">
+              FULL SERVICE ARCHITECTURE
+            </span>
+            <h3 className="text-2xl sm:text-3xl font-extrabold text-[#171717]">
+              Need a customized technology solution?
+            </h3>
+            <p className="text-slate-600 text-sm sm:text-base max-w-xl font-normal">
+              Review our end-to-end consulting, engineering pipelines, 5-stage delivery framework, and industry specializations.
+            </p>
+          </div>
+
+          <Link
+            href="/services"
+            className="shrink-0 px-8 py-4 rounded-full bg-[#171717] hover:bg-[#c8102e] text-white text-xs font-bold uppercase tracking-widest transition-all duration-300 flex items-center gap-2 group shadow-md shadow-slate-900/10 cursor-pointer"
+            data-cursor="magnetic"
+          >
+            <span>View All Services</span>
+            <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          </Link>
         </div>
       </div>
     </section>

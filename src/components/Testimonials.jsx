@@ -41,17 +41,17 @@ export default function Testimonials() {
     const ctx = gsap.context(() => {
       gsap.fromTo(
         ".testimonial-card",
-        { y: 30, opacity: 0 },
+        { y: 45, opacity: 0 },
         {
           y: 0,
           opacity: 1,
-          stagger: 0.12,
-          duration: 0.8,
+          stagger: 0.15,
+          duration: 0.9,
           ease: "power3.out",
           clearProps: "all",
           scrollTrigger: {
             trigger: containerRef.current,
-            start: "top 85%",
+            start: "top 80%",
           },
         }
       );
@@ -63,18 +63,28 @@ export default function Testimonials() {
   return (
     <section
       ref={containerRef}
-      className="relative z-[70] -mt-12 sm:-mt-16 py-28 px-4 sm:px-8 lg:px-12 bg-black text-white rounded-t-[3rem] sm:rounded-t-[4rem] overflow-hidden"
+      className="relative z-[70] py-28 lg:py-32 px-4 sm:px-8 lg:px-12 bg-[#f6f4ee] text-[#171717] border-t border-[#e2dcd2] overflow-hidden"
     >
       <div className="max-w-7xl mx-auto">
+        {/* Section Index Divider */}
+        <div className="flex items-center justify-between pb-6 mb-16 border-b border-[#e2dcd2] text-[11px] font-mono tracking-widest text-slate-500 uppercase">
+          <div className="flex items-center gap-2">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#c8102e]" />
+            <span className="font-bold text-[#c8102e]">07 //</span>
+            <span>CLIENT TESTIMONIALS</span>
+          </div>
+          <span className="hidden sm:inline-block text-slate-400">VERIFIED PARTNER FEEDBACK</span>
+        </div>
+
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-20 flex flex-col items-center gap-3">
           <span className="text-xs font-bold uppercase tracking-widest text-[#c8102e]">
             CLIENT TESTIMONIALS
           </span>
-          <h2 className="text-4xl sm:text-6xl font-extrabold text-white tracking-tight leading-tight">
+          <h2 className="text-4xl sm:text-6xl font-extrabold text-[#171717] tracking-tight leading-tight">
             Trusted by our clients
           </h2>
-          <p className="text-slate-300 text-base font-normal">
+          <p className="text-slate-600 text-base font-normal">
             Real feedback from enterprise partners, healthcare executives, and media networks we serve.
           </p>
         </div>
@@ -84,7 +94,7 @@ export default function Testimonials() {
           {testimonials.map((t, idx) => (
             <div
               key={idx}
-              className={`testimonial-card p-8 sm:p-10 rounded-3xl ${t.bgColor} border shadow-xl flex flex-col justify-between group hover:border-[#c8102e] transition-all duration-300`}
+              className={`testimonial-card p-8 sm:p-10 rounded-3xl ${t.bgColor} border shadow-xl flex flex-col justify-between group hover:border-[#c8102e] transition-all duration-300 lift-on-hover`}
             >
               <div>
                 <Quote className={`w-10 h-10 ${t.accent} mb-6 opacity-80`} />
@@ -96,7 +106,7 @@ export default function Testimonials() {
                 </div>
 
                 <p className="text-sm sm:text-base leading-relaxed font-normal mb-8 italic text-slate-600">
-                  "{t.quote}"
+                  &ldquo;{t.quote}&rdquo;
                 </p>
               </div>
 
@@ -115,3 +125,4 @@ export default function Testimonials() {
     </section>
   );
 }
+

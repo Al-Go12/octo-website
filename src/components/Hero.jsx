@@ -7,17 +7,49 @@ import { ArrowDown, Radio, Sparkles, ArrowRight } from "lucide-react";
 
 export default function Hero({ onExploreClick, onContactClick }) {
   const containerRef = useRef(null);
+  const bgRef = useRef(null);
+  const ringsRef = useRef(null);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
     const ctx = gsap.context(() => {
-      const tl = gsap.timeline({ defaults: { ease: "power3.out", duration: 1 } });
+      // 1. Entrance Timeline
+      const tl = gsap.timeline({ defaults: { ease: "power4.out", duration: 1.1 } });
 
-      tl.fromTo(".hero-badge", { y: 20, opacity: 0 }, { y: 0, opacity: 1, clearProps: "all" })
-        .fromTo(".hero-title-line", { y: 30, opacity: 0 }, { y: 0, opacity: 1, stagger: 0.15, clearProps: "all" }, "-=0.6")
-        .fromTo(".hero-subhead", { y: 20, opacity: 0 }, { y: 0, opacity: 1, clearProps: "all" }, "-=0.4")
+      tl.fromTo(".hero-badge", { y: -20, opacity: 0 }, { y: 0, opacity: 1, clearProps: "all" })
+        .fromTo(".hero-title-line", { y: 60, opacity: 0 }, { y: 0, opacity: 1, stagger: 0.12, clearProps: "all" }, "-=0.7")
+        .fromTo(".hero-subhead", { y: 30, opacity: 0 }, { y: 0, opacity: 1, clearProps: "all" }, "-=0.5")
         .fromTo(".hero-actions", { y: 20, opacity: 0 }, { y: 0, opacity: 1, clearProps: "all" }, "-=0.4");
+
+      // 2. Parallax Shift on Background Image & Rings on Scroll
+      if (bgRef.current) {
+        gsap.to(bgRef.current, {
+          yPercent: 20,
+          ease: "none",
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: "top top",
+            end: "bottom top",
+            scrub: true,
+          },
+        });
+      }
+
+      if (ringsRef.current) {
+        gsap.to(ringsRef.current, {
+          scale: 1.25,
+          rotation: 45,
+          opacity: 0.4,
+          ease: "none",
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: "top top",
+            end: "bottom top",
+            scrub: true,
+          },
+        });
+      }
     }, containerRef);
 
     return () => ctx.revert();
@@ -29,7 +61,7 @@ export default function Hero({ onExploreClick, onContactClick }) {
       className="relative min-h-screen pt-32 pb-16 px-4 sm:px-8 lg:px-12 flex flex-col justify-between overflow-hidden bg-white text-[#171717]"
     >
       {/* Light Background Image Layer with Optic Fiber Pattern */}
-      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+      <div ref={bgRef} className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         <img
           src="/images/hero-bg-signals-light.png"
           alt="OctoSignals Optic Fiber Background"
@@ -40,12 +72,13 @@ export default function Hero({ onExploreClick, onContactClick }) {
       </div>
 
       {/* Expanding Circular Signal Pulse Overlay */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-0 flex items-center justify-center">
+      <div ref={ringsRef} className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-0 flex items-center justify-center">
         <div className="w-[550px] h-[550px] rounded-full border border-[#c8102e]/30 animate-ping duration-[3500ms]" />
         <div className="absolute w-[800px] h-[800px] rounded-full border border-[#c8102e]/20 animate-pulse" />
         <div className="absolute w-[1050px] h-[1050px] rounded-full border border-slate-200" />
         <div className="absolute w-[500px] h-[500px] bg-gradient-to-tr from-[#c8102e]/10 via-[#e11d48]/5 to-transparent rounded-full blur-3xl" />
       </div>
+
 
       {/* Top Banner Tag */}
       <div className="max-w-7xl mx-auto w-full pt-4 relative z-10">

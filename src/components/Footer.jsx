@@ -1,7 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { ArrowUp, Mail, Phone, MapPin, Globe, Share2 } from "lucide-react";
+import Link from "next/link";
+import { ArrowUp, Mail, Phone } from "lucide-react";
 
 export default function Footer() {
   const scrollToTop = () => {
@@ -11,12 +12,12 @@ export default function Footer() {
   return (
     <footer className="bg-black text-white pt-20 pb-12 px-4 sm:px-8 lg:px-12 border-t border-slate-900">
       <div className="max-w-7xl mx-auto flex flex-col gap-16">
-        {/* Cuberto Screenshot 11 Top Footer Grid */}
+        {/* Top Footer Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           {/* Left Column: Direct Contact Pills & Locations */}
           <div className="lg:col-span-7 flex flex-col gap-8">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-[#c8102e] flex items-center justify-center overflow-hidden p-1 shadow-md shadow-[#c8102e]/30 [clip-path:polygon(30%_0%,70%_0%,100%_30%,100%_70%,70%_100%,30%_100%,0%_70%,0%_30%)]">
+            <Link href="/" className="flex items-center gap-3 w-fit group">
+              <div className="w-10 h-10 bg-[#c8102e] flex items-center justify-center overflow-hidden p-1 shadow-md shadow-[#c8102e]/30 [clip-path:polygon(30%_0%,70%_0%,100%_30%,100%_70%,70%_100%,30%_100%,0%_70%,0%_30%)] group-hover:scale-105 transition-transform">
                 <Image
                   src="/Octosignals-logo-05-192x192.png"
                   alt="OctoSignals Logo"
@@ -26,16 +27,16 @@ export default function Footer() {
                 />
               </div>
               <div className="flex flex-col">
-                <span className="font-extrabold text-xl tracking-tight text-white font-sans">
+                <span className="font-extrabold text-xl tracking-tight text-white font-sans group-hover:text-[#c8102e] transition-colors">
                   OCTOSIGNALS
                 </span>
                 <span className="text-[10px] font-bold uppercase tracking-widest text-[#c8102e]">
                   TECHNOLOGIES
                 </span>
               </div>
-            </div>
+            </Link>
 
-            {/* Cuberto Style Pill Contact Buttons */}
+            {/* Pill Contact Buttons */}
             <div className="flex flex-wrap items-center gap-4">
               <a
                 href="mailto:info@octosignals.com"
@@ -100,40 +101,43 @@ export default function Footer() {
           <div className="lg:col-span-5 grid grid-cols-2 gap-8 text-sm">
             <div className="flex flex-col gap-3">
               <span className="text-xs font-mono font-bold text-[#c8102e] uppercase tracking-widest">
-                NAVIGATION
+                SOLUTIONS & WORK
               </span>
-              <a href="#services" className="text-slate-300 hover:text-[#c8102e] transition-colors">
-                Services
-              </a>
-              <a href="#products" className="text-slate-300 hover:text-[#c8102e] transition-colors">
-                Selected Work
-              </a>
-              <a href="#approach" className="text-slate-300 hover:text-[#c8102e] transition-colors">
-                Workflow
-              </a>
+              <Link href="/services" className="text-slate-300 hover:text-[#c8102e] transition-colors">
+                All Services & Capabilities
+              </Link>
+              <Link href="/products" className="text-slate-300 hover:text-[#c8102e] transition-colors">
+                Proprietary Products Suite
+              </Link>
+              <Link href="/#approach" className="text-slate-300 hover:text-[#c8102e] transition-colors">
+                Our Engineering Approach
+              </Link>
+              <Link href="/#why-us" className="text-slate-300 hover:text-[#c8102e] transition-colors">
+                Why OctoSignals
+              </Link>
             </div>
 
             <div className="flex flex-col gap-3">
               <span className="text-xs font-mono font-bold text-[#c8102e] uppercase tracking-widest">
                 COMPANY
               </span>
-              <a href="#about" className="text-slate-300 hover:text-[#c8102e] transition-colors">
-                About Us
-              </a>
-              <a href="#why-us" className="text-slate-300 hover:text-[#c8102e] transition-colors">
-                Why OctoSignals
-              </a>
-              <a href="#insights" className="text-slate-300 hover:text-[#c8102e] transition-colors">
-                Insights & Blog
-              </a>
-              <a href="#contact" className="text-slate-300 hover:text-[#c8102e] transition-colors">
-                Contact Us
+              <Link href="/about" className="text-slate-300 hover:text-[#c8102e] transition-colors">
+                About OctoSignals
+              </Link>
+              <Link href="/about#values" className="text-slate-300 hover:text-[#c8102e] transition-colors">
+                Core Values & Vision
+              </Link>
+              <Link href="/about#presence" className="text-slate-300 hover:text-[#c8102e] transition-colors">
+                Global Footprint
+              </Link>
+              <a href="mailto:info@octosignals.com" className="text-slate-300 hover:text-[#c8102e] transition-colors">
+                Get In Touch
               </a>
             </div>
           </div>
         </div>
 
-        {/* Cuberto Screenshot 11 Bottom Copyright Bar */}
+        {/* Bottom Copyright Bar */}
         <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-slate-500">
           <p>© {new Date().getFullYear()} OctoSignals Technologies. All rights reserved.</p>
 
@@ -162,14 +166,14 @@ export default function Footer() {
               target="_blank"
               rel="noreferrer"
               className="w-9 h-9 rounded-full bg-white/5 flex items-center justify-center hover:bg-[#c8102e] hover:text-white transition-colors"
-              title="Facebook"
+              title="Official Website"
             >
-              <span className="font-sans font-bold text-xs">fb</span>
+              <span className="font-sans font-bold text-xs">web</span>
             </a>
 
             <button
               onClick={scrollToTop}
-              className="w-9 h-9 rounded-full bg-[#c8102e] text-white flex items-center justify-center hover:bg-white hover:text-[#171717] transition-colors ml-4"
+              className="w-9 h-9 rounded-full bg-[#c8102e] text-white flex items-center justify-center hover:bg-white hover:text-[#171717] transition-colors ml-4 cursor-pointer"
               title="Back to Top"
               data-cursor="magnetic"
             >

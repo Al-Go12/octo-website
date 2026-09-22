@@ -6,6 +6,7 @@ import gsap from "gsap";
 export default function Cursor({ isEnabled = true }) {
   const cursorRef = useRef(null);
   const followerRef = useRef(null);
+  const [isMouseDown, setIsMouseDown] = useState(false);
   const [cursorState, setCursorState] = useState({
     active: false,
     text: "",
@@ -19,11 +20,11 @@ export default function Cursor({ isEnabled = true }) {
     const follower = followerRef.current;
     if (!cursor || !follower) return;
 
-    const xTo = gsap.quickTo(cursor, "x", { duration: 0.1, ease: "power3" });
-    const yTo = gsap.quickTo(cursor, "y", { duration: 0.1, ease: "power3" });
+    const xTo = gsap.quickTo(cursor, "x", { duration: 0.08, ease: "power3.out" });
+    const yTo = gsap.quickTo(cursor, "y", { duration: 0.08, ease: "power3.out" });
 
-    const fxTo = gsap.quickTo(follower, "x", { duration: 0.35, ease: "power3" });
-    const fyTo = gsap.quickTo(follower, "y", { duration: 0.35, ease: "power3" });
+    const fxTo = gsap.quickTo(follower, "x", { duration: 0.28, ease: "power3.out" });
+    const fyTo = gsap.quickTo(follower, "y", { duration: 0.28, ease: "power3.out" });
 
     const handleMouseMove = (e) => {
       xTo(e.clientX);
@@ -31,6 +32,9 @@ export default function Cursor({ isEnabled = true }) {
       fxTo(e.clientX);
       fyTo(e.clientY);
     };
+
+    const handleMouseDown = () => setIsMouseDown(true);
+    const handleMouseUp = () => setIsMouseDown(false);
 
     const handleMouseOver = (e) => {
       const target = e.target.closest("[data-cursor]");
@@ -58,10 +62,14 @@ export default function Cursor({ isEnabled = true }) {
     };
 
     window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("mousedown", handleMouseDown);
+    window.addEventListener("mouseup", handleMouseUp);
     window.addEventListener("mouseover", handleMouseOver);
 
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("mousedown", handleMouseDown);
+      window.removeEventListener("mouseup", handleMouseUp);
       window.removeEventListener("mouseover", handleMouseOver);
     };
   }, [isEnabled]);
@@ -76,7 +84,9 @@ export default function Cursor({ isEnabled = true }) {
       {/* Small Precision Cursor Dot */}
       <div
         ref={cursorRef}
-        className="fixed top-0 left-0 w-2.5 h-2.5 bg-[#c8102e] rounded-full pointer-events-none z-[9999] -translate-x-1/2 -translate-y-1/2 transition-opacity duration-300 hidden md:block"
+        className={`fixed top-0 left-0 w-2.5 h-2.5 bg-[#c8102e] rounded-full pointer-events-none z-[9999] -translate-x-1/2 -translate-y-1/2 transition-opacity duration-300 hidden md:block ${
+          isMouseDown ? "scale-75" : "scale-100"
+        }`}
         style={{ opacity: cursorState.active ? 0 : 0.9 }}
       />
 
@@ -87,12 +97,13 @@ export default function Cursor({ isEnabled = true }) {
           isProject
             ? "w-24 h-24 bg-[#c8102e] text-white text-xs font-bold shadow-2xl scale-100 uppercase tracking-widest border border-white/30"
             : isMagnetic
-            ? "w-12 h-12 bg-[#c8102e]/20 border border-[#c8102e] backdrop-blur-xs scale-110"
+            ? "w-12 h-12 bg-[#c8102e]/20 border border-[#c8102e] backdrop-blur-xs scale-110 shadow-[0_0_15px_rgba(200,16,46,0.3)]"
             : "w-8 h-8 border border-[#171717]/30 bg-transparent scale-100"
-        }`}
+        } ${isMouseDown ? "scale-90" : ""}`}
       >
         {isProject && <span>{cursorState.text || "EXPLORE"}</span>}
       </div>
     </>
   );
 }
+

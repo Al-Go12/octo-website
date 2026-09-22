@@ -2,8 +2,10 @@
 
 import { useState } from "react";
 import SmoothScroll from "@/components/SmoothScroll";
+import ScrollProgress from "@/components/ScrollProgress";
 import Cursor from "@/components/Cursor";
 import Navbar from "@/components/Navbar";
+
 import Hero from "@/components/Hero";
 import AboutSection from "@/components/AboutSection";
 import WhatWeDo from "@/components/WhatWeDo";
@@ -12,9 +14,9 @@ import BrandTrust from "@/components/BrandTrust";
 import Approach from "@/components/Approach";
 import WhyOctosignals from "@/components/WhyOctosignals";
 import Testimonials from "@/components/Testimonials";
-import Insights from "@/components/Insights";
 import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
+
 import ContactModal from "@/components/ContactModal";
 
 export default function Home() {
@@ -29,7 +31,9 @@ export default function Home() {
 
   return (
     <SmoothScroll>
+      <ScrollProgress />
       <Cursor isEnabled={motionEnabled} />
+
 
       <Navbar
         onContactClick={() => handleOpenContact()}
@@ -37,7 +41,7 @@ export default function Home() {
         setMotionEnabled={setMotionEnabled}
       />
 
-      <main className="min-h-screen bg-black">
+      <main className="min-h-screen bg-[#fafafa]">
         {/* 1. Hero Section (WHITE BG) */}
         <Hero
           onExploreClick={() => {
@@ -70,11 +74,9 @@ export default function Home() {
         {/* 8. Client Testimonials (BLACK BG) */}
         <Testimonials />
 
-        {/* 9. Insights (WHITE BG) */}
-        <Insights />
-
-        {/* 10. Final CTA (BLACK BG) */}
+        {/* 9. Final CTA (BLACK BG) */}
         <FinalCTA onContactClick={() => handleOpenContact()} />
+
       </main>
 
       <Footer />

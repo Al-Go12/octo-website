@@ -41,17 +41,17 @@ export default function Insights() {
     const ctx = gsap.context(() => {
       gsap.fromTo(
         ".insight-card",
-        { y: 30, opacity: 0 },
+        { y: 45, opacity: 0 },
         {
           y: 0,
           opacity: 1,
-          stagger: 0.1,
-          duration: 0.8,
+          stagger: 0.12,
+          duration: 0.85,
           ease: "power3.out",
           clearProps: "all",
           scrollTrigger: {
             trigger: containerRef.current,
-            start: "top 85%",
+            start: "top 80%",
           },
         }
       );
@@ -64,7 +64,7 @@ export default function Insights() {
     <section
       id="insights"
       ref={containerRef}
-      className="relative z-[80] -mt-12 sm:-mt-16 py-28 px-4 sm:px-8 lg:px-12 bg-white text-[#171717] rounded-t-[3rem] sm:rounded-t-[4rem] overflow-hidden"
+      className="relative z-[80] py-28 lg:py-32 px-4 sm:px-8 lg:px-12 bg-white text-[#171717] border-t border-slate-200 overflow-hidden"
     >
       <div className="max-w-7xl mx-auto">
         {/* Cuberto Screenshot 10 Header */}
@@ -93,8 +93,9 @@ export default function Insights() {
           {articles.map((art, idx) => (
             <article
               key={idx}
-              className="insight-card rounded-3xl bg-white border border-slate-200/80 shadow-lg shadow-slate-900/5 overflow-hidden flex flex-col justify-between group hover:border-[#c8102e] hover:shadow-2xl transition-all duration-300 cursor-pointer"
+              className="insight-card rounded-3xl bg-white border border-slate-200/80 shadow-lg shadow-slate-900/5 overflow-hidden flex flex-col justify-between group hover:border-[#c8102e] hover:shadow-2xl transition-all duration-300 cursor-pointer lift-on-hover"
             >
+
               {/* Cuberto Visual Banner */}
               <div
                 className={`w-full h-48 p-6 bg-gradient-to-br ${art.gradient} flex flex-col justify-between text-white relative overflow-hidden`}

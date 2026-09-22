@@ -46,14 +46,53 @@ const steps = [
 
 export default function Approach() {
   const containerRef = useRef(null);
+  const imgRef = useRef(null);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
     const ctx = gsap.context(() => {
+      // Header item reveal
+      gsap.fromTo(
+        ".approach-header-item",
+        { y: 40, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          stagger: 0.12,
+          duration: 0.9,
+          ease: "power3.out",
+          clearProps: "all",
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: "top 80%",
+          },
+        }
+      );
+
+      // Image scroll zoom
+      if (imgRef.current) {
+        gsap.fromTo(
+          imgRef.current,
+          { scale: 0.95, opacity: 0.8 },
+          {
+            scale: 1,
+            opacity: 1,
+            ease: "none",
+            scrollTrigger: {
+              trigger: imgRef.current,
+              start: "top 85%",
+              end: "bottom 30%",
+              scrub: 0.5,
+            },
+          }
+        );
+      }
+
+      // Step cards stagger reveal
       gsap.fromTo(
         ".approach-step",
-        { y: 30, opacity: 0 },
+        { y: 45, opacity: 0 },
         {
           y: 0,
           opacity: 1,
@@ -62,7 +101,7 @@ export default function Approach() {
           ease: "power3.out",
           clearProps: "all",
           scrollTrigger: {
-            trigger: containerRef.current,
+            trigger: ".approach-steps-grid",
             start: "top 85%",
           },
         }
@@ -72,38 +111,48 @@ export default function Approach() {
     return () => ctx.revert();
   }, []);
 
+
   return (
     <section
       id="approach"
       ref={containerRef}
-      className="relative z-50 -mt-12 sm:-mt-16 py-28 px-4 sm:px-8 lg:px-12 bg-black text-white rounded-t-[3rem] sm:rounded-t-[4rem] overflow-hidden"
+      className="relative z-50 py-28 lg:py-32 px-4 sm:px-8 lg:px-12 bg-[#f6f4ee] text-[#171717] border-t border-[#e2dcd2] overflow-hidden"
     >
-
       <div className="max-w-7xl mx-auto">
+        {/* Section Index Divider */}
+        <div className="flex items-center justify-between pb-6 mb-16 border-b border-[#e2dcd2] text-[11px] font-mono tracking-widest text-slate-500 uppercase">
+          <div className="flex items-center gap-2">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#c8102e]" />
+            <span className="font-bold text-[#c8102e]">05 //</span>
+            <span>OUR APPROACH &amp; WORKFLOW</span>
+          </div>
+          <span className="hidden sm:inline-block text-slate-400">SYSTEMATIC METHODOLOGY</span>
+        </div>
+
         {/* Header Statement featuring extracted image */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-20">
           <div className="lg:col-span-6 flex flex-col gap-6">
-            <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#c8102e]">
+            <div className="approach-header-item inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#c8102e]">
               <span className="w-2 h-2 rounded-full bg-[#c8102e] animate-pulse" />
               <span>OUR PHILOSOPHY</span>
             </div>
 
-            <h2 className="text-4xl sm:text-6xl font-extrabold text-white tracking-tight leading-[1.08]">
+            <h2 className="approach-header-item text-4xl sm:text-6xl font-extrabold text-[#171717] tracking-tight leading-[1.08]">
               Guiding You in the Right Direction.
             </h2>
 
-            <p className="text-slate-300 text-lg leading-relaxed font-light">
+            <p className="approach-header-item text-slate-700 text-lg leading-relaxed font-normal">
               OctoSignals Technologies uses technology to create powerful solutions for businesses. We offer comprehensive services aimed at improving your offerings to associates, using the best practices in business and technology.
             </p>
 
-            <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-md">
+            <div className="approach-header-item p-6 rounded-2xl bg-white border border-slate-200 shadow-sm lift-on-hover">
               <p className="text-lg sm:text-xl font-light text-[#171717] leading-relaxed italic">
-                "At OctoSignals, we're not in the business of reinventing the wheel. Instead, we focus on ensuring that your wheel is spinning in the right direction."
+                &ldquo;At OctoSignals, we&apos;re not in the business of reinventing the wheel. Instead, we focus on ensuring that your wheel is spinning in the right direction.&rdquo;
               </p>
             </div>
           </div>
 
-          <div className="lg:col-span-6 relative rounded-3xl overflow-hidden border border-slate-200 shadow-2xl group">
+          <div ref={imgRef} className="lg:col-span-6 relative rounded-3xl overflow-hidden border border-slate-200 shadow-2xl group">
             <img
               src="https://octosignals.com/wp-content/uploads/2024/01/2151003727.jpg"
               alt="Our Approach & Technology Integration"
@@ -113,14 +162,15 @@ export default function Approach() {
         </div>
 
         {/* 6-Step Workflow Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="approach-steps-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {steps.map((step) => {
             const Icon = step.icon;
             return (
               <div
                 key={step.num}
-                className="approach-step p-8 rounded-3xl bg-white border border-slate-200 hover:border-[#c8102e] shadow-lg shadow-black/10 transition-all duration-300 flex flex-col justify-between group"
+                className="approach-step p-8 rounded-3xl bg-white border border-slate-200 hover:border-[#c8102e] shadow-lg shadow-black/10 transition-all duration-300 flex flex-col justify-between group lift-on-hover"
               >
+
                 <div className="flex items-center justify-between mb-8">
                   <span className="text-xs font-mono font-bold text-[#c8102e] bg-[#c8102e]/10 px-3 py-1 rounded-full border border-[#c8102e]/20">
                     STEP {step.num}
