@@ -3,12 +3,12 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import { Tv, GraduationCap, ShoppingBag, ArrowUpRight, ShieldCheck } from "lucide-react";
+import { Television, GraduationCap, ShoppingBag, ArrowUpRight, ShieldCheck } from "@phosphor-icons/react";
 
 const domains = [
   {
     title: "Media & Broadcasting",
-    icon: Tv,
+    icon: Television,
     badge: "BROADCAST & STREAMING",
     summary:
       "Technology solutions designed for media organizations, broadcasters, radio networks, and content-driven businesses.",
@@ -106,7 +106,7 @@ export default function DomainExpertise() {
                   {/* Top Badge & Icon */}
                   <div className="flex items-center justify-between mb-8">
                     <div className="w-14 h-14 rounded-2xl bg-slate-50 border border-slate-200 flex items-center justify-center text-[#171717] group-hover:bg-[#c8102e] group-hover:text-white transition-all duration-300">
-                      <Icon className="w-7 h-7" />
+                      <Icon className="w-7 h-7" weight="duotone" />
                     </div>
                     <span className="text-[10px] font-bold uppercase tracking-widest text-[#c8102e] bg-[#c8102e]/10 px-3 py-1 rounded-full border border-[#c8102e]/20">
                       {domain.badge}
@@ -125,7 +125,7 @@ export default function DomainExpertise() {
                   <div className="flex flex-col gap-3 pt-4 border-t border-slate-100 mb-8">
                     {domain.points.map((pt, pIdx) => (
                       <div key={pIdx} className="flex items-start gap-2.5 text-xs font-semibold text-slate-700">
-                        <ShieldCheck className="w-4 h-4 text-[#c8102e] shrink-0 mt-0.5" />
+                        <ShieldCheck className="w-4 h-4 text-[#c8102e] shrink-0 mt-0.5" weight="duotone" />
                         <span>{pt}</span>
                       </div>
                     ))}
@@ -135,7 +135,7 @@ export default function DomainExpertise() {
                 <div className="pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#171717] group-hover:text-[#c8102e] transition-colors">
                   <span>EXPLORE INDUSTRY SOLUTIONS</span>
                   <div className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center group-hover:bg-[#c8102e] group-hover:text-white transition-all">
-                    <ArrowUpRight className="w-4 h-4" />
+                    <ArrowUpRight className="w-4 h-4" weight="bold" />
                   </div>
                 </div>
               </div>

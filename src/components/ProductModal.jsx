@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import { X, ArrowUpRight, ShieldCheck, Sparkles, CheckCircle2 } from "lucide-react";
+import { X, ArrowUpRight, ShieldCheck, CheckCircle } from "@phosphor-icons/react";
 
 export default function ProductModal({ product, onClose, onInquire }) {
   useEffect(() => {
@@ -28,7 +28,7 @@ export default function ProductModal({ product, onClose, onInquire }) {
           onClick={onClose}
           className="absolute top-6 right-6 z-20 w-10 h-10 rounded-full bg-black/40 hover:bg-black text-white backdrop-blur-md flex items-center justify-center transition-all duration-300 shadow-md"
         >
-          <X className="w-5 h-5" />
+          <X className="w-5 h-5" weight="bold" />
         </button>
 
         {/* Modal Header Banner */}
@@ -81,7 +81,7 @@ export default function ProductModal({ product, onClose, onInquire }) {
                   key={idx}
                   className="p-4 rounded-2xl bg-slate-50 border border-slate-200 flex items-start gap-3"
                 >
-                  <CheckCircle2 className="w-5 h-5 text-[#c8102e] shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-[#c8102e] shrink-0 mt-0.5" weight="duotone" />
                   <span className="text-sm font-semibold text-slate-800">
                     {item}
                   </span>
@@ -93,7 +93,7 @@ export default function ProductModal({ product, onClose, onInquire }) {
           {/* Action Footer */}
           <div className="pt-6 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-2 text-xs font-mono text-slate-500">
-              <ShieldCheck className="w-4 h-4 text-[#c8102e]" />
+              <ShieldCheck className="w-4 h-4 text-[#c8102e]" weight="duotone" />
               <span>OCTOSIGNALS ENTERPRISE READY</span>
             </div>
 
@@ -113,7 +113,7 @@ export default function ProductModal({ product, onClose, onInquire }) {
                 className="flex-1 sm:flex-none px-6 py-3 rounded-full bg-[#c8102e] hover:bg-[#a80c24] text-white text-xs font-bold uppercase tracking-wider transition-all duration-300 flex items-center justify-center gap-2 shadow-lg shadow-[#c8102e]/30"
               >
                 <span>Inquire Solution</span>
-                <ArrowUpRight className="w-4 h-4" />
+                <ArrowUpRight className="w-4 h-4" weight="bold" />
               </button>
             </div>
           </div>

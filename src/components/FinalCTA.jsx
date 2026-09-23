@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import { ArrowUpRight, Sparkles, Phone } from "lucide-react";
+import { ArrowUpRight, Sparkle } from "@phosphor-icons/react";
 
 export default function FinalCTA({ onContactClick }) {
   const containerRef = useRef(null);
@@ -55,7 +55,7 @@ export default function FinalCTA({ onContactClick }) {
           {/* Left Text Column */}
           <div className="lg:col-span-7 flex flex-col gap-8">
             <div className="cta-item inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#c8102e]/10 text-xs font-bold uppercase tracking-widest text-[#c8102e] border border-[#c8102e]/20 w-fit">
-              <Sparkles className="w-3.5 h-3.5" />
+              <Sparkle className="w-3.5 h-3.5 text-[#c8102e]" weight="duotone" />
               <span>START A PROJECT WITH OCTOSIGNALS</span>
             </div>
 
@@ -77,7 +77,7 @@ export default function FinalCTA({ onContactClick }) {
                 data-cursor="magnetic"
               >
                 <span>Get In Touch With Engineers</span>
-                <ArrowUpRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
+                <ArrowUpRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" weight="bold" />
               </button>
             </div>
 
@@ -87,7 +87,7 @@ export default function FinalCTA({ onContactClick }) {
           <div className="lg:col-span-5 flex flex-col gap-3 group">
             <div className="w-full h-[420px] relative rounded-3xl overflow-hidden border border-slate-200 shadow-xl bg-white">
               <img
-                src="https://octosignals.com/wp-content/uploads/2022/12/digital-increasing-bar-graph-with-businessman-hand-overlay_53876-97640-e1705387653716-1024x704.webp"
+                src="/images/octo-initiate-partnership.jpg"
                 alt="Digital Growth Solutions - OctoSignals Technologies"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-100"
               />

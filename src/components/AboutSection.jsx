@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import { Target, Eye, Compass, ShieldCheck, ArrowUpRight } from "lucide-react";
+import { Target, Eye, Compass, ShieldCheck, ArrowUpRight } from "@phosphor-icons/react";
 
 export default function AboutSection() {
   const containerRef = useRef(null);
@@ -118,7 +118,7 @@ export default function AboutSection() {
           <div ref={imgRef} className="lg:col-span-6 flex flex-col gap-3 group">
             <div className="w-full h-[420px] relative rounded-3xl overflow-hidden border border-[#e8e4dc] shadow-xl bg-white">
               <img
-                src="https://octosignals.com/wp-content/uploads/2024/01/397-e1705387330501.jpg"
+                src="/images/octo-brand-philosophy.jpg"
                 alt="OctoSignals Philosophy - Guiding You in the Right Direction"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-100"
               />
@@ -139,7 +139,7 @@ export default function AboutSection() {
             {/* Strategy Card */}
             <div className="about-card p-8 rounded-3xl bg-white border border-slate-200 flex flex-col gap-4 lift-on-hover">
               <div className="flex items-center gap-3">
-                <Compass className="w-6 h-6 text-[#c8102e]" />
+                <Compass className="w-6 h-6 text-[#c8102e]" weight="duotone" />
 
                 <h3 className="text-xl font-bold text-[#171717]">
                   Technology Strategy & Consulting
@@ -158,7 +158,7 @@ export default function AboutSection() {
             {/* Business Solutions Card */}
             <div className="about-card p-8 rounded-3xl bg-white border border-slate-200 flex flex-col gap-4 lift-on-hover">
               <div className="flex items-center gap-3">
-                <ShieldCheck className="w-6 h-6 text-[#c8102e]" />
+                <ShieldCheck className="w-6 h-6 text-[#c8102e]" weight="duotone" />
 
                 <h3 className="text-xl font-bold text-[#171717]">
                   Comprehensive Business Solutions
@@ -185,7 +185,7 @@ export default function AboutSection() {
 
             <div>
               <div className="w-14 h-14 rounded-2xl bg-[#c8102e]/10 text-[#c8102e] flex items-center justify-center mb-6">
-                <Target className="w-7 h-7" />
+                <Target className="w-7 h-7" weight="duotone" />
               </div>
 
               <h3 className="text-2xl sm:text-3xl font-extrabold text-[#171717] mb-4">
@@ -210,7 +210,7 @@ export default function AboutSection() {
 
             <div>
               <div className="w-14 h-14 rounded-2xl bg-[#c8102e]/10 text-[#c8102e] flex items-center justify-center mb-6">
-                <Eye className="w-7 h-7" />
+                <Eye className="w-7 h-7" weight="duotone" />
               </div>
 
               <h3 className="text-2xl sm:text-3xl font-extrabold text-[#171717] mb-4">
@@ -252,7 +252,7 @@ export default function AboutSection() {
             data-cursor="magnetic"
           >
             <span>Explore About Us</span>
-            <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" weight="bold" />
           </Link>
         </div>
       </div>

@@ -3,14 +3,14 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import { Search, Lightbulb, PenTool, Hammer, Layers, RefreshCw } from "lucide-react";
+import { MagnifyingGlass, Lightbulb, PenNib, Hammer, Stack, ArrowsClockwise } from "@phosphor-icons/react";
 
 const steps = [
   {
     num: "01",
     title: "Understand the Problem First",
     desc: "We analyze real business context, operational friction, and user goals before proposing any technology stack.",
-    icon: Search,
+    icon: MagnifyingGlass,
   },
   {
     num: "02",
@@ -22,7 +22,7 @@ const steps = [
     num: "03",
     title: "Design the Solution",
     desc: "Architecting intuitive user interfaces, clean workflows, and enterprise-grade software architecture.",
-    icon: PenTool,
+    icon: PenNib,
   },
   {
     num: "04",
@@ -34,13 +34,13 @@ const steps = [
     num: "05",
     title: "Integrate Ecosystems",
     desc: "Connecting platforms, legacy databases, APIs, and automated tools into a single cohesive ecosystem.",
-    icon: Layers,
+    icon: Stack,
   },
   {
     num: "06",
     title: "Continuously Improve",
     desc: "Monitoring, refining performance, gathering analytics, and continuously enhancing value over time.",
-    icon: RefreshCw,
+    icon: ArrowsClockwise,
   },
 ];
 
@@ -154,7 +154,7 @@ export default function Approach() {
 
           <div ref={imgRef} className="lg:col-span-6 relative rounded-3xl overflow-hidden border border-slate-200 shadow-2xl group">
             <img
-              src="https://octosignals.com/wp-content/uploads/2024/01/2151003727.jpg"
+              src="/images/octo-approach-methodology.jpg"
               alt="Our Approach & Technology Integration"
               className="w-full h-[400px] object-cover group-hover:scale-105 transition-transform duration-700 opacity-100"
             />
@@ -176,7 +176,7 @@ export default function Approach() {
                     STEP {step.num}
                   </span>
                   <div className="w-12 h-12 rounded-xl bg-slate-100 flex items-center justify-center text-slate-700 group-hover:bg-[#c8102e] group-hover:text-white transition-colors duration-300">
-                    <Icon className="w-6 h-6" />
+                    <Icon className="w-6 h-6" weight="duotone" />
                   </div>
                 </div>
 

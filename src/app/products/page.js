@@ -6,23 +6,22 @@ import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import {
-  Search,
-  SlidersHorizontal,
+  MagnifyingGlass,
+  Faders,
   ArrowUpRight,
-  Sparkles,
-  CheckCircle2,
+  Sparkle,
+  CheckCircle,
   ShieldCheck,
-  Radio,
+  Broadcast,
   GraduationCap,
-  Award,
-  Calendar,
+  Trophy,
+  CalendarCheck,
   Gift,
   Waves,
-  MessageSquareCode,
+  ChatTeardropDots,
   Newspaper,
-  Music,
-  ExternalLink,
-} from "lucide-react";
+  MusicNotes,
+} from "@phosphor-icons/react";
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -37,7 +36,7 @@ const allProducts = [
     id: "audioprints",
     title: "AUDIOPRINTS",
     category: "MEDIA & BROADCAST",
-    icon: Radio,
+    icon: Broadcast,
     tagline: "Radio monitoring powered by in-house Automatic Content Recognition (ACR).",
     description:
       "A radio monitoring system powered by in-house Automatic Content Recognition technology. Monitor, identify, search, and analyze broadcast content through an intelligent monitoring platform.",
@@ -73,7 +72,7 @@ const allProducts = [
     id: "dealer-display",
     title: "DEALER DISPLAY CONTEST PORTAL",
     category: "RETAIL & MARKETING",
-    icon: Award,
+    icon: Trophy,
     tagline: "Digital platform to run dealer display contests and monitor submissions.",
     description:
       "A digital platform that helps companies run dealer display contests, manage participation, monitor submissions, and improve product visibility.",
@@ -91,7 +90,7 @@ const allProducts = [
     id: "eventease",
     title: "EVENTEASE",
     category: "ENTERPRISE EVENTS",
-    icon: Calendar,
+    icon: CalendarCheck,
     tagline: "Complete event management platform for registrations & attendance.",
     description:
       "A complete event management platform for invitations, registrations, attendance, and customer/dealer events.",
@@ -145,7 +144,7 @@ const allProducts = [
     id: "trend-tracker",
     title: "TREND TRACKER",
     category: "ANALYTICS & NLP",
-    icon: MessageSquareCode,
+    icon: ChatTeardropDots,
     tagline: "Multi-channel intelligence monitoring WhatsApp, SMS, and Telegram.",
     description:
       "A communication monitoring platform designed to assess incoming messages from channels such as WhatsApp, SMS, and Telegram.",
@@ -181,7 +180,7 @@ const allProducts = [
     id: "tunes24",
     title: "TUNES24",
     category: "MEDIA & BROADCAST",
-    icon: Music,
+    icon: MusicNotes,
     tagline: "24/7 online radio streaming experience focused on South Indian music.",
     description:
       "A 24/7 online radio streaming experience focused on South Indian music, delivering continuous high-fidelity audio streams globally.",
@@ -314,7 +313,7 @@ export default function ProductsPage() {
 
               {/* Keyword Search Input */}
               <div className="relative w-full lg:w-72">
-                <Search className="w-4 h-4 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2" />
+                <MagnifyingGlass className="w-4 h-4 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2" weight="bold" />
                 <input
                   type="text"
                   placeholder="Search products or tech..."
@@ -342,7 +341,7 @@ export default function ProductsPage() {
 
             {filteredProducts.length === 0 ? (
               <div className="text-center py-20 bg-white rounded-3xl border border-[#e8e4dc] p-8 shadow-sm">
-                <SlidersHorizontal className="w-10 h-10 text-[#c8102e] mx-auto mb-4" />
+                <Faders className="w-10 h-10 text-[#c8102e] mx-auto mb-4" weight="duotone" />
                 <h3 className="text-2xl font-bold text-[#171717] mb-2">No products match your filter</h3>
                 <p className="text-slate-600 text-sm max-w-md mx-auto mb-6">
                   Try adjusting your search query or selecting &ldquo;ALL PRODUCTS&rdquo; to view the complete catalog.
@@ -392,7 +391,7 @@ export default function ProductsPage() {
                         <div className="p-6 sm:p-8">
                           <div className="flex items-center gap-3 mb-3">
                             <div className="w-9 h-9 rounded-xl bg-[#c8102e]/10 text-[#c8102e] flex items-center justify-center shrink-0">
-                              <IconComp className="w-4 h-4" />
+                              <IconComp className="w-4 h-4" weight="duotone" />
                             </div>
                             <h3 className="text-xl sm:text-2xl font-extrabold text-[#171717] group-hover:text-[#c8102e] transition-colors">
                               {prod.title}
@@ -419,7 +418,7 @@ export default function ProductsPage() {
                           <div className="space-y-2 pt-4 border-t border-slate-100">
                             {prod.highlights.slice(0, 2).map((hl, hIdx) => (
                               <div key={hIdx} className="flex items-start gap-2 text-xs text-slate-700">
-                                <CheckCircle2 className="w-3.5 h-3.5 text-[#c8102e] shrink-0 mt-0.5" />
+                                <CheckCircle className="w-3.5 h-3.5 text-[#c8102e] shrink-0 mt-0.5" weight="duotone" />
                                 <span>{hl}</span>
                               </div>
                             ))}
@@ -436,7 +435,7 @@ export default function ProductsPage() {
                           data-cursor="magnetic"
                         >
                           <span>Full Specs</span>
-                          <ArrowUpRight className="w-3.5 h-3.5" />
+                          <ArrowUpRight className="w-3.5 h-3.5" weight="bold" />
                         </button>
 
                         <button
@@ -485,7 +484,7 @@ export default function ProductsPage() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="p-8 rounded-3xl bg-slate-50 border border-slate-200">
                 <div className="w-12 h-12 rounded-2xl bg-white border border-slate-200 flex items-center justify-center text-[#c8102e] mb-6 shadow-sm">
-                  <ShieldCheck className="w-6 h-6" />
+                  <ShieldCheck className="w-6 h-6" weight="duotone" />
                 </div>
                 <h3 className="text-xl font-bold text-[#171717] mb-2">Hardened Data Security</h3>
                 <p className="text-slate-600 text-sm leading-relaxed font-normal">
@@ -495,7 +494,7 @@ export default function ProductsPage() {
 
               <div className="p-8 rounded-3xl bg-slate-50 border border-slate-200">
                 <div className="w-12 h-12 rounded-2xl bg-white border border-slate-200 flex items-center justify-center text-[#c8102e] mb-6 shadow-sm">
-                  <Radio className="w-6 h-6" />
+                  <Broadcast className="w-6 h-6" weight="duotone" />
                 </div>
                 <h3 className="text-xl font-bold text-[#171717] mb-2">24/7 High-Availability</h3>
                 <p className="text-slate-600 text-sm leading-relaxed font-normal">
@@ -505,7 +504,7 @@ export default function ProductsPage() {
 
               <div className="p-8 rounded-3xl bg-slate-50 border border-slate-200">
                 <div className="w-12 h-12 rounded-2xl bg-white border border-slate-200 flex items-center justify-center text-[#c8102e] mb-6 shadow-sm">
-                  <Sparkles className="w-6 h-6" />
+                  <Sparkle className="w-6 h-6" weight="duotone" />
                 </div>
                 <h3 className="text-xl font-bold text-[#171717] mb-2">Custom White-Labeling</h3>
                 <p className="text-slate-600 text-sm leading-relaxed font-normal">
@@ -546,7 +545,7 @@ export default function ProductsPage() {
                 data-cursor="magnetic"
               >
                 <span>Request Live Demo</span>
-                <ArrowUpRight className="w-4 h-4" />
+                <ArrowUpRight className="w-4 h-4" weight="bold" />
               </button>
 
               <Link

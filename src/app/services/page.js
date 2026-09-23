@@ -7,20 +7,18 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import {
   Compass,
-  Code2,
-  Workflow,
-  Sparkles,
-  Radio,
-  BrainCircuit,
+  Code,
+  TreeStructure,
+  Sparkle,
+  Broadcast,
+  Brain,
   ArrowUpRight,
-  CheckCircle2,
-  Tv,
+  CheckCircle,
+  Television,
   GraduationCap,
   ShoppingBag,
   ShieldCheck,
-  Cpu,
-  Layers,
-} from "lucide-react";
+} from "@phosphor-icons/react";
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -47,7 +45,7 @@ const detailedServices = [
   },
   {
     id: "02",
-    icon: Code2,
+    icon: Code,
     title: "Software & Product Development",
     tagline: "End-to-end engineering of digital products built to scale.",
     summary:
@@ -62,7 +60,7 @@ const detailedServices = [
   },
   {
     id: "03",
-    icon: Workflow,
+    icon: TreeStructure,
     title: "Technology Integration",
     tagline: "Connecting platforms, data, and workflows into cohesive ecosystems.",
     summary:
@@ -77,7 +75,7 @@ const detailedServices = [
   },
   {
     id: "04",
-    icon: Sparkles,
+    icon: Sparkle,
     title: "Creative Technology",
     tagline: "Engaging digital experiences that bridge software and human emotion.",
     summary:
@@ -92,7 +90,7 @@ const detailedServices = [
   },
   {
     id: "05",
-    icon: Radio,
+    icon: Broadcast,
     title: "Broadcast & Media Technology",
     tagline: "Mission-critical systems for radio, streaming, and content tracking.",
     summary:
@@ -107,7 +105,7 @@ const detailedServices = [
   },
   {
     id: "06",
-    icon: BrainCircuit,
+    icon: Brain,
     title: "AI & Intelligent Solutions",
     tagline: "Practical AI that automates workflows and unlocks intelligence.",
     summary:
@@ -229,7 +227,7 @@ export default function ServicesPage() {
                 data-cursor="magnetic"
               >
                 <span>Discuss Your Project</span>
-                <ArrowUpRight className="w-4 h-4" />
+                <ArrowUpRight className="w-4 h-4" weight="bold" />
               </button>
 
               <Link
@@ -238,7 +236,7 @@ export default function ServicesPage() {
                 data-cursor="magnetic"
               >
                 <span>Browse Software Products</span>
-                <ArrowUpRight className="w-4 h-4" />
+                <ArrowUpRight className="w-4 h-4" weight="bold" />
               </Link>
             </div>
           </div>
@@ -282,7 +280,7 @@ export default function ServicesPage() {
                       {/* Card Header */}
                       <div className="flex items-center justify-between mb-6">
                         <div className="w-14 h-14 rounded-2xl bg-[#c8102e]/10 text-[#c8102e] flex items-center justify-center group-hover:scale-105 transition-transform">
-                          <IconComp className="w-7 h-7" />
+                          <IconComp className="w-7 h-7" weight="duotone" />
                         </div>
                         <span className="text-2xl sm:text-3xl font-mono font-extrabold text-slate-300 group-hover:text-[#c8102e] transition-colors">
                           {service.id}
@@ -308,7 +306,7 @@ export default function ServicesPage() {
                         </span>
                         {service.deliverables.map((item, dIdx) => (
                           <div key={dIdx} className="flex items-start gap-2.5 text-xs text-slate-700">
-                            <CheckCircle2 className="w-4 h-4 text-[#c8102e] shrink-0 mt-0.5" />
+                            <CheckCircle className="w-4 h-4 text-[#c8102e] shrink-0 mt-0.5" weight="duotone" />
                             <span>{item}</span>
                           </div>
                         ))}
@@ -329,7 +327,7 @@ export default function ServicesPage() {
                       data-cursor="magnetic"
                     >
                       <span>Inquire About This Service</span>
-                      <ArrowUpRight className="w-4 h-4" />
+                      <ArrowUpRight className="w-4 h-4" weight="bold" />
                     </button>
                   </div>
                 );
@@ -382,7 +380,7 @@ export default function ServicesPage() {
                   </div>
 
                   <div className="mt-6 pt-4 border-t border-slate-200 flex items-center gap-1.5 text-[10px] font-mono font-bold uppercase text-slate-500">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-[#c8102e]" />
+                    <CheckCircle className="w-3.5 h-3.5 text-[#c8102e]" weight="duotone" />
                     <span>MILESTONE {stepItem.step}</span>
                   </div>
                 </div>
@@ -421,7 +419,7 @@ export default function ServicesPage() {
               <div className="p-8 sm:p-10 rounded-3xl bg-white border border-[#e8e4dc] hover:border-[#c8102e] shadow-sm hover:shadow-xl transition-all flex flex-col justify-between">
                 <div>
                   <div className="w-14 h-14 rounded-2xl bg-[#c8102e]/10 text-[#c8102e] flex items-center justify-center mb-6">
-                    <Tv className="w-7 h-7" />
+                    <Television className="w-7 h-7" weight="duotone" />
                   </div>
                   <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-[#c8102e] block mb-2">
                     BROADCAST & STREAMING
@@ -434,15 +432,15 @@ export default function ServicesPage() {
                   </p>
                   <div className="space-y-2 border-t border-slate-100 pt-4 text-xs text-slate-700">
                     <div className="flex items-center gap-2">
-                      <ShieldCheck className="w-4 h-4 text-[#c8102e]" />
+                      <ShieldCheck className="w-4 h-4 text-[#c8102e]" weight="duotone" />
                       <span>Automatic Content Recognition (ACR)</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <ShieldCheck className="w-4 h-4 text-[#c8102e]" />
+                      <ShieldCheck className="w-4 h-4 text-[#c8102e]" weight="duotone" />
                       <span>24/7 Digital Radio Streaming</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <ShieldCheck className="w-4 h-4 text-[#c8102e]" />
+                      <ShieldCheck className="w-4 h-4 text-[#c8102e]" weight="duotone" />
                       <span>Media Monitoring & Ad Analytics</span>
                     </div>
                   </div>
@@ -453,7 +451,7 @@ export default function ServicesPage() {
               <div className="p-8 sm:p-10 rounded-3xl bg-white border border-[#e8e4dc] hover:border-[#c8102e] shadow-sm hover:shadow-xl transition-all flex flex-col justify-between">
                 <div>
                   <div className="w-14 h-14 rounded-2xl bg-[#c8102e]/10 text-[#c8102e] flex items-center justify-center mb-6">
-                    <GraduationCap className="w-7 h-7" />
+                    <GraduationCap className="w-7 h-7" weight="duotone" />
                   </div>
                   <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-[#c8102e] block mb-2">
                     STUDENT LIFECYCLE
@@ -466,15 +464,15 @@ export default function ServicesPage() {
                   </p>
                   <div className="space-y-2 border-t border-slate-100 pt-4 text-xs text-slate-700">
                     <div className="flex items-center gap-2">
-                      <ShieldCheck className="w-4 h-4 text-[#c8102e]" />
+                      <ShieldCheck className="w-4 h-4 text-[#c8102e]" weight="duotone" />
                       <span>Overseas Student Journey CRM</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <ShieldCheck className="w-4 h-4 text-[#c8102e]" />
+                      <ShieldCheck className="w-4 h-4 text-[#c8102e]" weight="duotone" />
                       <span>Document Vault & Verification Pipelines</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <ShieldCheck className="w-4 h-4 text-[#c8102e]" />
+                      <ShieldCheck className="w-4 h-4 text-[#c8102e]" weight="duotone" />
                       <span>Automated WhatsApp Nurturing</span>
                     </div>
                   </div>
@@ -485,7 +483,7 @@ export default function ServicesPage() {
               <div className="p-8 sm:p-10 rounded-3xl bg-white border border-[#e8e4dc] hover:border-[#c8102e] shadow-sm hover:shadow-xl transition-all flex flex-col justify-between">
                 <div>
                   <div className="w-14 h-14 rounded-2xl bg-[#c8102e]/10 text-[#c8102e] flex items-center justify-center mb-6">
-                    <ShoppingBag className="w-7 h-7" />
+                    <ShoppingBag className="w-7 h-7" weight="duotone" />
                   </div>
                   <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-[#c8102e] block mb-2">
                     LOYALTY & VISIBILITY
@@ -498,15 +496,15 @@ export default function ServicesPage() {
                   </p>
                   <div className="space-y-2 border-t border-slate-100 pt-4 text-xs text-slate-700">
                     <div className="flex items-center gap-2">
-                      <ShieldCheck className="w-4 h-4 text-[#c8102e]" />
+                      <ShieldCheck className="w-4 h-4 text-[#c8102e]" weight="duotone" />
                       <span>Interactive Gamification & Rewards</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <ShieldCheck className="w-4 h-4 text-[#c8102e]" />
+                      <ShieldCheck className="w-4 h-4 text-[#c8102e]" weight="duotone" />
                       <span>Dealer Display Audits & Contests</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <ShieldCheck className="w-4 h-4 text-[#c8102e]" />
+                      <ShieldCheck className="w-4 h-4 text-[#c8102e]" weight="duotone" />
                       <span>Receipt Verification & Anti-Fraud</span>
                     </div>
                   </div>
@@ -546,7 +544,7 @@ export default function ServicesPage() {
                 data-cursor="magnetic"
               >
                 <span>Schedule Discovery Call</span>
-                <ArrowUpRight className="w-4 h-4" />
+                <ArrowUpRight className="w-4 h-4" weight="bold" />
               </button>
 
               <Link

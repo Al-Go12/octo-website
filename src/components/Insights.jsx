@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import { ArrowUpRight, Clock, BookOpen } from "lucide-react";
+import { ArrowUpRight, BookOpen } from "@phosphor-icons/react";
 
 const articles = [
   {
@@ -84,7 +84,7 @@ export default function Insights() {
             data-cursor="magnetic"
           >
             <span>Visit Blog & Publications</span>
-            <ArrowUpRight className="w-4 h-4" />
+            <ArrowUpRight className="w-4 h-4" weight="bold" />
           </a>
         </div>
 
@@ -105,7 +105,7 @@ export default function Insights() {
                     {art.category}
                   </span>
                   <div className="w-8 h-8 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white">
-                    <BookOpen className="w-4 h-4" />
+                    <BookOpen className="w-4 h-4" weight="duotone" />
                   </div>
                 </div>
 
@@ -129,7 +129,7 @@ export default function Insights() {
                 <div className="pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#171717] group-hover:text-[#c8102e] transition-colors">
                   <span>READ FULL INSIGHT</span>
                   <div className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center group-hover:bg-[#c8102e] group-hover:text-white transition-all">
-                    <ArrowUpRight className="w-4 h-4" />
+                    <ArrowUpRight className="w-4 h-4" weight="bold" />
                   </div>
                 </div>
               </div>

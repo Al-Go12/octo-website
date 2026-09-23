@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { X, Send, Sparkles, CheckCircle2 } from "lucide-react";
+import { X, PaperPlaneRight, Sparkle, CheckCircle } from "@phosphor-icons/react";
 
 export default function ContactModal({ isOpen, onClose, initialProduct = "" }) {
   const [submitted, setSubmitted] = useState(false);
@@ -47,13 +47,13 @@ export default function ContactModal({ isOpen, onClose, initialProduct = "" }) {
           onClick={onClose}
           className="absolute top-6 right-6 w-9 h-9 rounded-full bg-slate-100 text-[#171717] hover:bg-[#c8102e] hover:text-white flex items-center justify-center transition-colors"
         >
-          <X className="w-5 h-5" />
+          <X className="w-5 h-5" weight="bold" />
         </button>
 
         {submitted ? (
           <div className="text-center py-10 flex flex-col items-center gap-4">
             <div className="w-16 h-16 rounded-full bg-[#c8102e]/10 text-[#c8102e] flex items-center justify-center">
-              <CheckCircle2 className="w-10 h-10" />
+              <CheckCircle className="w-10 h-10" weight="duotone" />
             </div>
             <h3 className="text-2xl font-bold text-[#171717]">Message Received!</h3>
             <p className="text-slate-600 text-sm max-w-md">
@@ -72,7 +72,7 @@ export default function ContactModal({ isOpen, onClose, initialProduct = "" }) {
         ) : (
           <div>
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#c8102e]/10 text-xs font-bold text-[#c8102e] mb-4">
-              <Sparkles className="w-3.5 h-3.5" />
+              <Sparkle className="w-3.5 h-3.5" weight="duotone" />
               <span>OCTOSIGNALS INQUIRY</span>
             </div>
 
@@ -158,7 +158,7 @@ export default function ContactModal({ isOpen, onClose, initialProduct = "" }) {
                 className="w-full py-4 rounded-xl bg-[#c8102e] hover:bg-[#a80c24] text-white text-xs font-bold uppercase tracking-widest transition-all flex items-center justify-center gap-2 shadow-lg shadow-[#c8102e]/30"
               >
                 <span>Submit Inquiry</span>
-                <Send className="w-4 h-4" />
+                <PaperPlaneRight className="w-4 h-4" weight="bold" />
               </button>
             </form>
           </div>

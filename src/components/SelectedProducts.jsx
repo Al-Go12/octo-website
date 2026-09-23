@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import { ArrowUpRight, Sparkles } from "lucide-react";
+import { ArrowUpRight, Sparkle } from "@phosphor-icons/react";
 import ProductModal from "./ProductModal";
 
 const productsData = [
@@ -315,7 +315,7 @@ export default function SelectedProducts({ onInquireProduct }) {
         <div className="mt-20 p-8 sm:p-12 rounded-3xl bg-white border border-[#e8e4dc] shadow-sm flex flex-col sm:flex-row items-center justify-between gap-6">
           <div className="flex flex-col gap-2 text-center sm:text-left">
             <div className="inline-flex items-center gap-2 justify-center sm:justify-start">
-              <Sparkles className="w-4 h-4 text-[#c8102e]" />
+              <Sparkle className="w-4 h-4 text-[#c8102e]" weight="duotone" />
               <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#c8102e]">
                 PROPRIETARY SOFTWARE SUITE
               </span>
@@ -334,7 +334,7 @@ export default function SelectedProducts({ onInquireProduct }) {
             data-cursor="magnetic"
           >
             <span>View All Products</span>
-            <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" weight="bold" />
           </Link>
         </div>
       </div>

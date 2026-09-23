@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUp, Mail, Phone } from "lucide-react";
+import { ArrowUp, EnvelopeSimple, Phone } from "@phosphor-icons/react";
 
 export default function Footer() {
   const scrollToTop = () => {
@@ -26,11 +26,11 @@ export default function Footer() {
                   className="object-contain"
                 />
               </div>
-              <div className="flex flex-col">
-                <span className="font-extrabold text-xl tracking-tight text-white font-sans group-hover:text-[#c8102e] transition-colors">
+              <div className="flex flex-col font-ubuntu">
+                <span className="font-bold text-xl tracking-tight text-white font-ubuntu group-hover:text-[#c8102e] transition-colors leading-none">
                   OCTOSIGNALS
                 </span>
-                <span className="text-[10px] font-bold uppercase tracking-widest text-[#c8102e]">
+                <span className="text-[10px] font-bold uppercase tracking-widest text-[#c8102e] font-ubuntu mt-0.5">
                   TECHNOLOGIES
                 </span>
               </div>
@@ -43,7 +43,7 @@ export default function Footer() {
                 className="px-6 py-3 rounded-full bg-white/10 border border-white/15 hover:border-[#c8102e] text-xs font-mono font-bold text-white transition-all flex items-center gap-2"
                 data-cursor="magnetic"
               >
-                <Mail className="w-4 h-4 text-[#c8102e]" />
+                <EnvelopeSimple className="w-4 h-4 text-[#c8102e]" weight="duotone" />
                 <span>info@octosignals.com</span>
               </a>
 
@@ -52,7 +52,7 @@ export default function Footer() {
                 className="px-6 py-3 rounded-full bg-white/10 border border-white/15 hover:border-[#c8102e] text-xs font-mono font-bold text-white transition-all flex items-center gap-2"
                 data-cursor="magnetic"
               >
-                <Phone className="w-4 h-4 text-[#c8102e]" />
+                <Phone className="w-4 h-4 text-[#c8102e]" weight="duotone" />
                 <span>+91 79944 77790</span>
               </a>
             </div>
@@ -177,7 +177,7 @@ export default function Footer() {
               title="Back to Top"
               data-cursor="magnetic"
             >
-              <ArrowUp className="w-4 h-4" />
+              <ArrowUp className="w-4 h-4" weight="bold" />
             </button>
           </div>
         </div>

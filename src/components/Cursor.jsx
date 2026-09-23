@@ -97,11 +97,16 @@ export default function Cursor({ isEnabled = true }) {
           isProject
             ? "w-24 h-24 bg-[#c8102e] text-white text-xs font-bold shadow-2xl scale-100 uppercase tracking-widest border border-white/30"
             : isMagnetic
-            ? "w-12 h-12 bg-[#c8102e]/20 border border-[#c8102e] backdrop-blur-xs scale-110 shadow-[0_0_15px_rgba(200,16,46,0.3)]"
-            : "w-8 h-8 border border-[#171717]/30 bg-transparent scale-100"
+            ? "w-14 h-14 bg-[#c8102e]/25 border-2 border-[#c8102e] backdrop-blur-xs scale-110 shadow-[0_0_25px_rgba(200,16,46,0.65)]"
+            : "w-9 h-9 border-2 border-[#c8102e] bg-[#c8102e]/15 shadow-[0_0_18px_rgba(200,16,46,0.6)] scale-100"
         } ${isMouseDown ? "scale-90" : ""}`}
       >
-        {isProject && <span>{cursorState.text || "EXPLORE"}</span>}
+        {isProject ? (
+          <span>{cursorState.text || "EXPLORE"}</span>
+        ) : (
+          /* Vivid animated pulsing red signal ring */
+          <span className="w-full h-full rounded-full border border-[#c8102e]/70 animate-ping pointer-events-none opacity-80" />
+        )}
       </div>
     </>
   );

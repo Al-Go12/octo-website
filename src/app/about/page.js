@@ -9,18 +9,17 @@ import {
   ShieldCheck,
   Lightbulb,
   Cpu,
-  HeartHandshake,
+  Handshake,
   Target,
   Eye,
-  Globe2,
+  Globe,
   MapPin,
   Phone,
-  Mail,
+  EnvelopeSimple,
   ArrowUpRight,
-  Sparkles,
-  CheckCircle2,
-  Layers,
-} from "lucide-react";
+  Sparkle,
+  CheckCircle,
+} from "@phosphor-icons/react";
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -67,7 +66,7 @@ const coreValues = [
     ],
   },
   {
-    icon: HeartHandshake,
+    icon: Handshake,
     title: "Enduring Relationships",
     badge: "COLLABORATIVE",
     description:
@@ -243,7 +242,7 @@ export default function AboutPage() {
                 data-cursor="magnetic"
               >
                 <span>Partner With Us</span>
-                <ArrowUpRight className="w-4 h-4" />
+                <ArrowUpRight className="w-4 h-4" weight="bold" />
               </button>
 
               <Link
@@ -252,7 +251,7 @@ export default function AboutPage() {
                 data-cursor="magnetic"
               >
                 <span>Explore Products</span>
-                <ArrowUpRight className="w-4 h-4" />
+                <ArrowUpRight className="w-4 h-4" weight="bold" />
               </Link>
 
               <Link
@@ -379,7 +378,7 @@ export default function AboutPage() {
                     <div>
                       <div className="flex items-center justify-between mb-6">
                         <div className="w-14 h-14 rounded-2xl bg-white border border-slate-200 flex items-center justify-center text-[#c8102e] shadow-sm">
-                          <IconComponent className="w-7 h-7" />
+                          <IconComponent className="w-7 h-7" weight="duotone" />
                         </div>
                         <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-[#c8102e] bg-[#c8102e]/10 px-3 py-1 rounded-full border border-[#c8102e]/20">
                           {val.badge}
@@ -398,7 +397,7 @@ export default function AboutPage() {
                     <div className="pt-6 border-t border-slate-200 flex flex-col gap-2.5">
                       {val.details.map((detail, dIdx) => (
                         <div key={dIdx} className="flex items-center gap-2.5 text-xs font-semibold text-slate-700">
-                          <CheckCircle2 className="w-4 h-4 text-[#c8102e] shrink-0" />
+                          <CheckCircle className="w-4 h-4 text-[#c8102e] shrink-0" weight="duotone" />
                           <span>{detail}</span>
                         </div>
                       ))}
@@ -437,7 +436,7 @@ export default function AboutPage() {
               <div className="p-8 sm:p-12 rounded-3xl bg-white border border-[#e8e4dc] hover:border-[#c8102e] shadow-sm hover:shadow-xl transition-all flex flex-col justify-between">
                 <div>
                   <div className="w-14 h-14 rounded-2xl bg-[#c8102e]/20 text-[#c8102e] flex items-center justify-center mb-6">
-                    <Target className="w-7 h-7" />
+                    <Target className="w-7 h-7" weight="duotone" />
                   </div>
                   <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#c8102e] block mb-2">
                     OUR MISSION
@@ -458,7 +457,7 @@ export default function AboutPage() {
               <div className="p-8 sm:p-12 rounded-3xl bg-white border border-[#e8e4dc] hover:border-[#c8102e] shadow-sm hover:shadow-xl transition-all flex flex-col justify-between">
                 <div>
                   <div className="w-14 h-14 rounded-2xl bg-[#c8102e]/20 text-[#c8102e] flex items-center justify-center mb-6">
-                    <Eye className="w-7 h-7" />
+                    <Eye className="w-7 h-7" weight="duotone" />
                   </div>
                   <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#c8102e] block mb-2">
                     OUR VISION
@@ -520,7 +519,7 @@ export default function AboutPage() {
                       <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-[#c8102e] bg-[#c8102e]/10 px-2.5 py-1 rounded-full border border-[#c8102e]/20">
                         {loc.badge}
                       </span>
-                      <MapPin className="w-4 h-4 text-slate-400" />
+                      <MapPin className="w-4 h-4 text-slate-400" weight="duotone" />
                     </div>
 
                     <h3 className="text-xl font-extrabold text-[#171717] mb-1">
@@ -543,7 +542,7 @@ export default function AboutPage() {
                       href={`tel:${loc.phone}`}
                       className="text-[#c8102e] font-semibold hover:underline flex items-center gap-1.5"
                     >
-                      <Phone className="w-3.5 h-3.5" />
+                      <Phone className="w-3.5 h-3.5" weight="duotone" />
                       <span>{loc.phone}</span>
                     </a>
                   </div>
@@ -583,7 +582,7 @@ export default function AboutPage() {
                 data-cursor="magnetic"
               >
                 <span>Get In Touch</span>
-                <ArrowUpRight className="w-4 h-4" />
+                <ArrowUpRight className="w-4 h-4" weight="bold" />
               </button>
 
               <Link

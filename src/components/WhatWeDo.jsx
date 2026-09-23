@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import { ArrowUpRight, CheckCircle2 } from "lucide-react";
+import { ArrowUpRight, CheckCircle } from "@phosphor-icons/react";
 
 const services = [
   {
@@ -208,7 +208,7 @@ export default function WhatWeDo() {
                           : "bg-slate-100 text-slate-500"
                       }`}
                     >
-                      <ArrowUpRight className="w-5 h-5 sm:w-6 sm:h-6" />
+                      <ArrowUpRight className="w-5 h-5 sm:w-6 sm:h-6" weight="bold" />
                     </div>
                   </div>
                 </div>
@@ -233,7 +233,7 @@ export default function WhatWeDo() {
                             key={fIdx}
                             className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/15 text-xs sm:text-sm font-semibold text-white backdrop-blur-md"
                           >
-                            <CheckCircle2 className="w-4 h-4 text-[#c8102e]" />
+                            <CheckCircle className="w-4 h-4 text-[#c8102e]" weight="duotone" />
                             <span>{feat}</span>
                           </div>
                         ))}
@@ -266,7 +266,7 @@ export default function WhatWeDo() {
             data-cursor="magnetic"
           >
             <span>View All Services</span>
-            <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" weight="bold" />
           </Link>
         </div>
       </div>

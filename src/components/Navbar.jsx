@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ArrowUpRight, Menu, X } from "lucide-react";
+import { ArrowUpRight, List, X } from "@phosphor-icons/react";
 
 export default function Navbar({ onContactClick, motionEnabled = true, setMotionEnabled }) {
   const [scrolled, setScrolled] = useState(false);
@@ -38,13 +38,13 @@ export default function Navbar({ onContactClick, motionEnabled = true, setMotion
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 px-4 sm:px-8 lg:px-12 ${
         scrolled
           ? "py-3 bg-white/90 backdrop-blur-md border-b border-slate-200/80 shadow-md shadow-slate-900/5"
           : "py-5 bg-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Brand Logo with Official OctoSignals Red Octagon Emblem */}
         <Link href="/" className="flex items-center gap-3 group" data-cursor="magnetic">
           <div className="relative w-10 h-10 bg-[#c8102e] flex items-center justify-center shadow-lg shadow-[#c8102e]/25 group-hover:scale-105 transition-transform duration-300 overflow-hidden [clip-path:polygon(30%_0%,70%_0%,100%_30%,100%_70%,70%_100%,30%_100%,0%_70%,0%_30%)]">
@@ -57,14 +57,16 @@ export default function Navbar({ onContactClick, motionEnabled = true, setMotion
             />
           </div>
 
-          <div className="flex flex-col">
-            <span className="font-extrabold text-xl tracking-tight text-[#171717] group-hover:text-[#c8102e] transition-colors leading-none font-sans">
-              OCTOSIGNALS
-            </span>
-            <span className="text-[10px] font-bold uppercase tracking-widest text-[#c8102e] mt-0.5">
-              TECHNOLOGIES
-            </span>
-          </div>
+          <span
+            className="font-ubuntu-bold-italic text-xl sm:text-2xl tracking-tight text-[#c8102e] group-hover:text-[#a80c24] transition-colors leading-none select-none"
+            style={{
+              fontFamily: "'Ubuntu', -apple-system, BlinkMacSystemFont, sans-serif",
+              fontStyle: "italic",
+              fontWeight: 700,
+            }}
+          >
+            Octosignals
+          </span>
         </Link>
 
         {/* Desktop Nav Links */}
@@ -127,7 +129,7 @@ export default function Navbar({ onContactClick, motionEnabled = true, setMotion
           className="lg:hidden p-2 rounded-xl bg-slate-100 text-[#171717] hover:bg-slate-200 transition-colors"
           aria-label="Toggle Navigation Menu"
         >
-          {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          {mobileMenuOpen ? <X className="w-6 h-6" weight="bold" /> : <List className="w-6 h-6" weight="bold" />}
         </button>
       </div>
 

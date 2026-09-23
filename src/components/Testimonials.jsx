@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import { Quote, Star } from "lucide-react";
+import { Quotes, Star } from "@phosphor-icons/react";
 
 const testimonials = [
   {
@@ -97,11 +97,11 @@ export default function Testimonials() {
               className={`testimonial-card p-8 sm:p-10 rounded-3xl ${t.bgColor} border shadow-xl flex flex-col justify-between group hover:border-[#c8102e] transition-all duration-300 lift-on-hover`}
             >
               <div>
-                <Quote className={`w-10 h-10 ${t.accent} mb-6 opacity-80`} />
+                <Quotes className={`w-10 h-10 ${t.accent} mb-6 opacity-90`} weight="duotone" />
 
                 <div className="flex items-center gap-1 mb-6 text-amber-400">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-current" />
+                    <Star key={i} className="w-4 h-4 text-amber-400" weight="fill" />
                   ))}
                 </div>
 

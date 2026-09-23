@@ -1,14 +1,29 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import { ArrowDown, Radio, Sparkles, ArrowRight } from "lucide-react";
+import { ArrowDown, Broadcast, Sparkle, ArrowRight } from "@phosphor-icons/react";
 
 export default function Hero({ onExploreClick, onContactClick }) {
   const containerRef = useRef(null);
   const bgRef = useRef(null);
   const ringsRef = useRef(null);
+  const [mousePos, setMousePos] = useState({ x: -500, y: -500, visible: false });
+
+  const handleHeroMouseMove = (e) => {
+    if (!containerRef.current) return;
+    const rect = containerRef.current.getBoundingClientRect();
+    setMousePos({
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top,
+      visible: true,
+    });
+  };
+
+  const handleHeroMouseLeave = () => {
+    setMousePos((prev) => ({ ...prev, visible: false }));
+  };
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -58,6 +73,8 @@ export default function Hero({ onExploreClick, onContactClick }) {
   return (
     <section
       ref={containerRef}
+      onMouseMove={handleHeroMouseMove}
+      onMouseLeave={handleHeroMouseLeave}
       className="relative min-h-screen pt-32 pb-16 px-4 sm:px-8 lg:px-12 flex flex-col justify-between overflow-hidden bg-white text-[#171717]"
     >
       {/* Light Background Image Layer with Optic Fiber Pattern */}
@@ -71,12 +88,27 @@ export default function Hero({ onExploreClick, onContactClick }) {
         <div className="absolute inset-0 bg-gradient-to-t from-white via-white/50 to-white/30" />
       </div>
 
+      {/* Interactive High-Intensity Mouse Hover Red Signal Rings */}
+      {mousePos.visible && (
+        <div
+          className="pointer-events-none absolute z-0 -translate-x-1/2 -translate-y-1/2 transition-opacity duration-300 hidden md:block"
+          style={{ left: mousePos.x, top: mousePos.y }}
+        >
+          {/* Vibrant Core Red Pulse Ring */}
+          <div className="w-28 h-28 rounded-full border-2 border-[#c8102e] bg-[#c8102e]/20 shadow-[0_0_35px_rgba(200,16,46,0.65)] animate-ping duration-1000" />
+          {/* Concentric Telemetry Radar Ring */}
+          <div className="absolute inset-0 -m-4 w-36 h-36 rounded-full border-2 border-[#c8102e]/70 animate-pulse shadow-[0_0_20px_rgba(200,16,46,0.4)]" />
+          {/* Luminous Red Ambient Glow */}
+          <div className="absolute inset-0 -m-8 w-44 h-44 rounded-full bg-[#c8102e]/25 blur-2xl" />
+        </div>
+      )}
+
       {/* Expanding Circular Signal Pulse Overlay */}
       <div ref={ringsRef} className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-0 flex items-center justify-center">
-        <div className="w-[550px] h-[550px] rounded-full border border-[#c8102e]/30 animate-ping duration-[3500ms]" />
-        <div className="absolute w-[800px] h-[800px] rounded-full border border-[#c8102e]/20 animate-pulse" />
-        <div className="absolute w-[1050px] h-[1050px] rounded-full border border-slate-200" />
-        <div className="absolute w-[500px] h-[500px] bg-gradient-to-tr from-[#c8102e]/10 via-[#e11d48]/5 to-transparent rounded-full blur-3xl" />
+        <div className="w-[550px] h-[550px] rounded-full border-2 border-[#c8102e]/55 animate-ping duration-[3500ms] shadow-[0_0_30px_rgba(200,16,46,0.3)]" />
+        <div className="absolute w-[800px] h-[800px] rounded-full border border-[#c8102e]/40 animate-pulse" />
+        <div className="absolute w-[1050px] h-[1050px] rounded-full border border-slate-300/80" />
+        <div className="absolute w-[500px] h-[500px] bg-gradient-to-tr from-[#c8102e]/25 via-[#e11d48]/15 to-transparent rounded-full blur-3xl" />
       </div>
 
 
@@ -84,7 +116,7 @@ export default function Hero({ onExploreClick, onContactClick }) {
       <div className="max-w-7xl mx-auto w-full pt-4 relative z-10">
         <div className="hero-badge inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/90 border border-slate-200 shadow-sm text-xs font-semibold text-[#171717] backdrop-blur-md">
           <span className="w-2.5 h-2.5 rounded-full bg-[#c8102e] animate-ping" />
-          <Radio className="w-3.5 h-3.5 text-[#c8102e]" />
+          <Broadcast className="w-4 h-4 text-[#c8102e]" weight="duotone" />
           <span>OCTOSIGNALS TECHNOLOGIES</span>
           <span className="text-slate-300">|</span>
           <span className="text-slate-600 font-normal">India • UAE • Oman • US</span>
@@ -122,7 +154,7 @@ export default function Hero({ onExploreClick, onContactClick }) {
               data-cursor="magnetic"
             >
               <span>Explore Products</span>
-              <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+              <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" weight="bold" />
             </a>
 
             <button
@@ -130,7 +162,7 @@ export default function Hero({ onExploreClick, onContactClick }) {
               className="px-8 py-4 rounded-full bg-white text-[#171717] border border-slate-300 text-xs sm:text-sm font-bold tracking-wider uppercase transition-all duration-300 hover:border-[#c8102e] hover:text-[#c8102e] hover:bg-slate-50 flex items-center gap-2 shadow-sm"
               data-cursor="magnetic"
             >
-              <Sparkles className="w-4 h-4 text-[#c8102e]" />
+              <Sparkle className="w-4 h-4 text-[#c8102e]" weight="duotone" />
               <span>Discuss Solution</span>
             </button>
           </div>
@@ -154,7 +186,7 @@ export default function Hero({ onExploreClick, onContactClick }) {
           className="flex items-center gap-2 text-slate-700 hover:text-[#c8102e] transition-colors font-bold uppercase tracking-wider"
         >
           <span>SCROLL TO DISCOVER</span>
-          <ArrowDown className="w-4 h-4 animate-bounce text-[#c8102e]" />
+          <ArrowDown className="w-4 h-4 animate-bounce text-[#c8102e]" weight="bold" />
         </a>
       </div>
     </section>

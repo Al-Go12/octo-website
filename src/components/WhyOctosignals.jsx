@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import { CheckCircle2, ShieldCheck, HeartHandshake, Wrench, Target, Zap } from "lucide-react";
+import { CheckCircle, ShieldCheck, Handshake, Wrench, Target, Lightning } from "@phosphor-icons/react";
 
 const pillars = [
   {
@@ -14,7 +14,7 @@ const pillars = [
   {
     title: "Long-Term Partnerships",
     desc: "We build enduring relationships, serving as a trusted technology co-pilot as your business evolves.",
-    icon: HeartHandshake,
+    icon: Handshake,
   },
   {
     title: "Reliable Engineering",
@@ -29,7 +29,7 @@ const pillars = [
   {
     title: "Continuous Innovation",
     desc: "Leveraging emerging AI, ACR, NLP, and media streaming technologies to keep your business ahead.",
-    icon: Zap,
+    icon: Lightning,
   },
 ];
 
@@ -154,7 +154,7 @@ export default function WhyOctosignals() {
               >
                 <div>
                   <div className="w-12 h-12 rounded-2xl bg-[#c8102e]/10 text-[#c8102e] flex items-center justify-center mb-6 group-hover:bg-[#c8102e] group-hover:text-white transition-colors duration-300">
-                    <Icon className="w-6 h-6" />
+                    <Icon className="w-6 h-6" weight="duotone" />
                   </div>
 
                   <h3 className="text-2xl font-bold text-[#171717] mb-3 group-hover:text-[#c8102e] transition-colors">
@@ -167,7 +167,7 @@ export default function WhyOctosignals() {
                 </div>
 
                 <div className="pt-6 mt-6 border-t border-slate-200 flex items-center gap-2 text-xs text-[#c8102e] font-mono font-bold">
-                  <CheckCircle2 className="w-4 h-4" />
+                  <CheckCircle className="w-4 h-4" weight="duotone" />
                   <span>OCTOSIGNALS CORE PRINCIPLE</span>
                 </div>
               </div>
