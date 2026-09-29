@@ -7,7 +7,6 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import {
   MagnifyingGlass,
-  Faders,
   ArrowUpRight,
   Sparkle,
   CheckCircle,
@@ -18,9 +17,15 @@ import {
   CalendarCheck,
   Gift,
   Waves,
-  ChatTeardropDots,
   Newspaper,
-  MusicNotes,
+  FirstAid,
+  TreeStructure,
+  Receipt,
+  Storefront,
+  Star,
+  Leaf,
+  Briefcase,
+  Megaphone,
 } from "@phosphor-icons/react";
 
 import Navbar from "@/components/Navbar";
@@ -28,180 +33,350 @@ import Footer from "@/components/Footer";
 import ProductModal from "@/components/ProductModal";
 import ContactModal from "@/components/ContactModal";
 import SmoothScroll from "@/components/SmoothScroll";
-import ScrollProgress from "@/components/ScrollProgress";
-import Cursor from "@/components/Cursor";
 
 const allProducts = [
+  // 1. Media & Broadcasting
   {
     id: "audioprints",
     title: "AUDIOPRINTS",
-    category: "MEDIA & BROADCAST",
+    category: "MEDIA & BROADCASTING",
     icon: Broadcast,
-    tagline: "Radio monitoring powered by in-house Automatic Content Recognition (ACR).",
+    tagline: "Know what's playing, the moment it airs.",
     description:
-      "A radio monitoring system powered by in-house Automatic Content Recognition technology. Monitor, identify, search, and analyze broadcast content through an intelligent monitoring platform.",
+      "AudioPrints uses in-house Automatic Content Recognition (ACR) technology to identify and monitor radio content in real time, giving broadcasters, brands and media agencies verified proof of what aired, when, and how often.",
     highlights: [
-      "Proprietary In-House ACR Recognition Engine",
-      "Real-Time Radio Broadcast Identification",
-      "Automated Campaign Verification & Ad Tracking",
-      "Comprehensive Audio Search & Analytics Dashboard",
+      "Real-time audio content recognition",
+      "Automated monitoring across multiple stations",
+      "Verified airplay and compliance reports",
+      "Brand and campaign tracking intelligence",
     ],
     techStack: ["Acoustic Fingerprinting", "Python/Rust Core", "WebSockets", "Kafka"],
     image: "https://images.pexels.com/photos/32354361/pexels-photo-32354361.jpeg",
     badge: "PATENTED ACR TECH",
   },
   {
+    id: "community-radio",
+    title: "COMMUNITY / CAMPUS RADIO",
+    category: "MEDIA & BROADCASTING",
+    icon: Waves,
+    tagline: "Your own radio station, fully set up and streaming.",
+    description:
+      "A complete radio station setup and online streaming solution for community groups, campuses and institutions — covering everything from equipment and studio build-out to live online broadcast.",
+    highlights: [
+      "End-to-end station setup and consultation",
+      "Studio and transmission equipment",
+      "Live online and community streaming",
+      "Scalable for campus, community or institutional use",
+    ],
+    techStack: ["Icecast/HLS", "Low-Latency AAC", "Studio Integration", "Web Player SDK"],
+    badge: "BROADCAST INTEGRATOR",
+    image: "https://images.pexels.com/photos/6954162/pexels-photo-6954162.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop",
+  },
+  {
+    id: "news-portal",
+    title: "NEWS PORTAL",
+    category: "MEDIA & BROADCASTING",
+    icon: Newspaper,
+    tagline: "A modern newsroom, online.",
+    description:
+      "A digital newsroom platform built for efficient news aggregation, editorial workflows and publishing — helping media houses move from source to story to screen faster.",
+    highlights: [
+      "Content aggregation and curation",
+      "Editorial and publishing workflow",
+      "Multi-format story publishing (text, video, audio)",
+      "Built to scale with newsroom teams",
+    ],
+    techStack: ["Next.js ISR", "Full-Text Search", "Editorial CMS", "Web Push"],
+    badge: "DIGITAL NEWSROOM",
+    image: "https://images.pexels.com/photos/5185440/pexels-photo-5185440.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop",
+  },
+
+  // 2. Healthcare
+  {
+    id: "ayur-cms",
+    title: "AYUR CMS",
+    category: "HEALTHCARE",
+    icon: FirstAid,
+    tagline: "The modern harmony of ancient wisdom.",
+    description:
+      "Ayur CMS is a comprehensive clinic and hospital management system built specifically for Ayurveda practices — streamlining patient care, therapy scheduling, pharmacy and billing while preserving the clinical heritage of traditional treatment.",
+    highlights: [
+      "Patient and doctor management",
+      "Appointment booking and OP consultation",
+      "Panchakarma / therapy and treatment tracking",
+      "Pharmacy and inventory management",
+      "Billing and payments",
+      "Role-based access (admin, doctors, therapists, pharmacists)",
+      "Clinical and financial reports & analytics",
+    ],
+    techStack: ["Next.js", "Node.js", "PostgreSQL", "HIPAA/EHR Standards"],
+    badge: "AYURVEDA HEALTHCARE",
+    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=80",
+  },
+
+  // 3. Education
+  {
     id: "octo-campus-crm",
     title: "OCTO CAMPUS CRM",
-    category: "CRM & EDUCATION",
+    category: "EDUCATION",
     icon: GraduationCap,
-    tagline: "CRM platform designed for overseas education consultants and agencies.",
+    tagline: "From first enquiry to enrollment — in one system.",
     description:
-      "A CRM platform designed for overseas education consultants and agencies. Manage students, applications, documents, tasks, communication, and the complete student journey from inquiry to enrollment.",
+      "A centralized CRM built for education and study-abroad agencies, Octo Campus CRM manages the complete student lifecycle: capturing enquiries, distributing leads to counsellors, tracking follow-ups across phone, WhatsApp and email, and converting interest into enrollment.",
     highlights: [
-      "Complete Student Journey Tracking & Pipelines",
-      "Application & Document Verification Workflow Engine",
-      "Counselor Task & Lead Assignment Logic",
-      "Automated Multi-Channel Communication (SMS/WhatsApp)",
+      "Centralized student enquiry and lead management",
+      "Automated lead distribution to telecalling teams",
+      "Integrated phone, WhatsApp and email communication",
+      "Follow-up and interest-level tracking",
+      "Course and college/university management",
+      "Employee productivity and call reports",
+      "Sales and conversion analytics",
     ],
     techStack: ["Next.js", "Node.js", "PostgreSQL", "WhatsApp Cloud API"],
     badge: "EDTECH ENTERPRISE",
     image: "https://images.pexels.com/photos/5900222/pexels-photo-5900222.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop",
   },
+
+  // 4. Enterprise CRM, ERP & Business Platforms
   {
-    id: "dealer-display",
-    title: "DEALER DISPLAY CONTEST PORTAL",
-    category: "RETAIL & MARKETING",
-    icon: Trophy,
-    tagline: "Digital platform to run dealer display contests and monitor submissions.",
+    id: "orbit-crm",
+    title: "ORBIT CRM SUITE",
+    category: "ENTERPRISE CRM & ERP",
+    icon: TreeStructure,
+    tagline: "One platform. Every department.",
     description:
-      "A digital platform that helps companies run dealer display contests, manage participation, monitor submissions, and improve product visibility.",
+      "Orbit is a full enterprise CRM and ERP suite that unifies sales, finance, HR, projects, assets, support and reporting into a single connected system — taking a lead from first contact all the way through proposal, delivery and support.",
     highlights: [
-      "Image Submission & Audit Approval Engine",
-      "Dealer Participation & Scoring Leaderboard",
-      "Product Branding Visibility Verification",
-      "Automated Notification & Prize Distribution",
+      "CRM: leads, clients, proposals and sales orders",
+      "Accounts: invoicing, vendors, GST and financial reporting",
+      "HR and payroll: attendance, leave and workforce management",
+      "Project management: milestones, timesheets and issue tracking",
+      "Asset management with QR-based tracking",
+      "Help desk and support ticketing",
+      "Role-based access and cross-module reporting",
     ],
-    techStack: ["Computer Vision Audit", "React", "Cloudflare R2", "GraphQL"],
-    badge: "RETAIL AUDITING",
-    image: "https://images.pexels.com/photos/1036856/pexels-photo-1036856.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop",
+    techStack: ["React", "FastAPI", "PostgreSQL", "Redis", "Docker"],
+    badge: "FULL ERP SUITE",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
   },
   {
-    id: "eventease",
-    title: "EVENTEASE",
-    category: "ENTERPRISE EVENTS",
-    icon: CalendarCheck,
-    tagline: "Complete event management platform for registrations & attendance.",
+    id: "servicepro-crm",
+    title: "SERVICEPRO CRM",
+    category: "ENTERPRISE CRM & ERP",
+    icon: Briefcase,
+    tagline: "Scale your service business without the chaos.",
     description:
-      "A complete event management platform for invitations, registrations, attendance, and customer/dealer events.",
+      "A service-business CRM and ERP built for companies that manage recurring contracts and field teams — automating everything from customer onboarding to recurring billing and renewal reminders.",
     highlights: [
-      "QR Code Check-in & Instant Badge Generation",
-      "Dealer & Executive Invitation Tracking",
-      "Real-Time Attendance Analytics & Capacity Alerts",
-      "Post-Event Survey & Feedback Collection",
+      "Centralized customer database with order history",
+      "Service and product order management with PDF invoicing",
+      "Automated recurring billing cycles and renewal reminders",
+      "Complaint and service-ticket tracking",
+      "Employee and territory management",
+      "Automated WhatsApp reminders & real-time analytics",
     ],
-    techStack: ["QR Fast Scanner", "WebSockets", "Serverless Edge", "PDF Engine"],
-    badge: "HIGH CONCURRENCY",
-    image: "https://images.pexels.com/photos/2747449/pexels-photo-2747449.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop",
+    techStack: ["Next.js", "Node.js", "PostgreSQL", "WhatsApp Webhooks"],
+    badge: "SERVICE BUSINESS ERP",
+    image: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1200&q=80",
   },
+  {
+    id: "quotation-generator-pro",
+    title: "QUOTATION GENERATOR PRO",
+    category: "ENTERPRISE CRM & ERP",
+    icon: Receipt,
+    tagline: "From quote to order, without the back-and-forth.",
+    description:
+      "A commercial document engine for teams that generate frequent quotations, purchase orders and approvals — pairing a lightweight CRM with GST-ready templates, multi-stage approval workflows and audit-ready reporting.",
+    highlights: [
+      "Client and staff management",
+      "Configurable GST and non-GST quotation templates",
+      "Multi-stage approval workflow",
+      "Auto-generated release orders",
+      "High-fidelity PDF document generation",
+      "Reports and audit trail",
+    ],
+    techStack: ["React", "TailwindCSS", "PDF Generation Core", "Node.js"],
+    badge: "COMMERCIAL ENGINE",
+    image: "https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=1200&q=80",
+  },
+  {
+    id: "retailhub-pos",
+    title: "RETAILHUB POS",
+    category: "ENTERPRISE CRM & ERP",
+    icon: Storefront,
+    tagline: "Multi-category retail, one connected system.",
+    description:
+      "RetailHub is a point-of-sale and inventory platform built for multi-category retailers — from electronics to apparel and watches — combining stock and variant management with GST billing and an automated WhatsApp assistant that captures leads from customer enquiries.",
+    highlights: [
+      "Product, category and variant management",
+      "Low-stock alerts and supplier margin tracking",
+      "Point-of-sale billing with GST-compliant invoices",
+      "Customer registry and purchase history",
+      "Automated WhatsApp chatbot for stock/price queries and lead capture",
+      "Purchase and sales reporting with data export",
+    ],
+    techStack: ["Electron/Web", "Next.js", "Thermal Printer API", "WhatsApp AI"],
+    badge: "RETAIL POS & BOT",
+    image: "https://images.unsplash.com/photo-1555421689-491a97ff2040?auto=format&fit=crop&w=1200&q=80",
+  },
+
+  // 5. Marketing, Engagement & Rewards
   {
     id: "spin-n-win",
     title: "SPIN N WIN REWARDS",
-    category: "RETAIL & MARKETING",
+    category: "MARKETING & REWARDS",
     icon: Gift,
-    tagline: "Gamified customer engagement turning purchases into interactive experiences.",
+    tagline: "Scan, play, win — every purchase becomes an experience.",
     description:
-      "An interactive customer engagement platform that transforms purchases into memorable experiences through games, rewards, and promotional campaigns.",
+      "A gamified loyalty platform that turns everyday purchases into engaging spin-and-quiz reward experiences, with OCR-powered invoice verification and automated gift fulfilment so every campaign runs securely at scale.",
     highlights: [
-      "Gamified Promotional Spin Wheel Logic",
-      "Secure Purchase Receipt Verification & Anti-Fraud",
-      "Instant Digital Reward Code Redemption",
-      "Multi-Branch Store Performance Dashboard",
+      "Spin-the-wheel and quiz-based reward mechanics",
+      "OCR-based invoice/bill verification",
+      "Configurable prize tiers and winner rules",
+      "Gift inventory and dealer/distribution management",
+      "Real-time campaign dashboard and analytics",
+      "Fraud-resistant duplicate-bill detection",
     ],
-    techStack: ["Canvas/WebGL Gamification", "Fraud Heuristics", "Redis", "SMS Gateway"],
-    badge: "LOYALTY ENGINE",
+    techStack: ["OCR Engine", "Canvas/WebGL", "Redis Rate Limiter", "SMS Gateway"],
+    badge: "GAMIFIED LOYALTY",
     image: "https://images.pexels.com/photos/7594228/pexels-photo-7594228.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop",
   },
   {
-    id: "community-radio",
-    title: "COMMUNITY RADIO",
-    category: "MEDIA & BROADCAST",
-    icon: Waves,
-    tagline: "Campus & community radio solution with online streaming capabilities.",
+    id: "dealer-display",
+    title: "DEALER DISPLAY CONTEST PORTAL",
+    category: "MARKETING & REWARDS",
+    icon: Trophy,
+    tagline: "Turn every dealer display into a competition.",
     description:
-      "A campus and community radio solution with online streaming capabilities for creating vibrant digital radio experiences.",
+      "A platform that lets dealers submit photos of their product displays, get evaluated against defined criteria, and compete for rewards — giving brands a transparent, data-driven way to run display and merchandising contests at scale.",
     highlights: [
-      "Continuous Web & Mobile Audio Streaming",
-      "Scheduled Show & Podcast Automation",
-      "Community Listener Request Interactivity",
-      "High-Efficiency Low-Bandwidth Encoding",
+      "Dealer login and display submission",
+      "Configurable evaluation criteria and scoring",
+      "Region-wise dealer ranking & leaderboards",
+      "Campaign setup with winner-count limits",
+      "Evaluation scorecards by area/regional manager or agency",
+      "Excel-based reporting and data export",
     ],
-    techStack: ["Icecast/HLS", "Low-Latency AAC", "Automated Playout", "Web Player SDK"],
-    badge: "STREAMING CLOUD",
-    image: "https://images.pexels.com/photos/6954162/pexels-photo-6954162.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop",
+    techStack: ["Image Auditing", "React", "Cloudflare Storage", "GraphQL"],
+    badge: "DEALER AUDITING",
+    image: "https://images.pexels.com/photos/1036856/pexels-photo-1036856.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop",
   },
   {
-    id: "trend-tracker",
-    title: "TREND TRACKER",
-    category: "ANALYTICS & NLP",
-    icon: ChatTeardropDots,
-    tagline: "Multi-channel intelligence monitoring WhatsApp, SMS, and Telegram.",
+    id: "trade-promotion-manager",
+    title: "TRADE PROMOTION MANAGER",
+    category: "MARKETING & REWARDS",
+    icon: Megaphone,
+    tagline: "Field marketing, tracked from ground to boardroom.",
     description:
-      "A communication monitoring platform designed to assess incoming messages from channels such as WhatsApp, SMS, and Telegram.",
+      "A trade marketing and materials management platform that gives brands visibility and control over painter meets, dealer/shop meets, signage and merchandise requests — with geo-tagged proof of execution and synced inventory across regional depots.",
     highlights: [
-      "Multi-Channel Inbound Feed Aggregation",
-      "Natural Language Sentiment Classification",
-      "Keyword & Trend Velocity Alerts",
-      "Automated Escalation Workflows",
+      "Painter meet, shop meet and merchandise request management",
+      "Signage request and vendor allocation",
+      "Regional stock and depot transfer control",
+      "Geo-tagged, photo-verified installation proof",
+      "Multi-stage marketing approval workflow",
+      "ERP-linked masters and Excel compliance reporting",
     ],
-    techStack: ["NLP Classifiers", "Telegram/WhatsApp Webhooks", "TimescaleDB", "Elasticsearch"],
-    badge: "NLP INTELLIGENCE",
-    image: "https://images.pexels.com/photos/14380720/pexels-photo-14380720.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop",
+    techStack: ["Geolocation Proof", "React Native", "Node.js", "ERP Sync"],
+    badge: "FIELD MARKETING",
+    image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1200&q=80",
   },
   {
-    id: "news-portal",
-    title: "NEWS PORTAL",
-    category: "MEDIA & PUBLISHING",
-    icon: Newspaper,
-    tagline: "Complete news aggregation, editorial curation, and distribution engine.",
+    id: "gift-redemption-portal",
+    title: "GIFT REDEMPTION & CHANNEL REWARDS",
+    category: "MARKETING & REWARDS",
+    icon: Gift,
+    tagline: "Reward your channel partners, compliantly.",
     description:
-      "A complete news aggregation and dissemination platform for collecting, organizing, and distributing news content.",
+      "An end-to-end platform for managing promotional gift campaigns for channel partners and dealers — from purchase orders and inventory allocation to winner verification, logistics tracking and automated tax-compliant deductions.",
     highlights: [
-      "Multi-Source Automated RSS & Feed Ingestion",
-      "Editorial Publishing & Category Workflow",
-      "SEO-Optimized Fast Content Rendering",
-      "Targeted Push Notification Engine",
+      "Campaign and purchase order management",
+      "Gift inventory and vendor pricing control",
+      "PAN/Aadhar-based KYC and winner verification",
+      "Automated TDS calculation per regulatory rules",
+      "Real-time logistics and delivery tracking",
+      "Analytics and compliance reporting",
     ],
-    techStack: ["Next.js ISR", "Full-Text Search", "Editorial CMS", "Web Push"],
-    badge: "PUBLISHING SUITE",
-    image: "https://images.pexels.com/photos/5185440/pexels-photo-5185440.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop",
+    techStack: ["KYC Integration", "Automated TDS Engine", "PostgreSQL", "Logistics API"],
+    badge: "CHANNEL COMPLIANCE",
+    image: "https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=1200&q=80",
   },
   {
-    id: "tunes24",
-    title: "TUNES24",
-    category: "MEDIA & BROADCAST",
-    icon: MusicNotes,
-    tagline: "24/7 online radio streaming experience focused on South Indian music.",
+    id: "reviewxpert",
+    title: "REVIEWXPERT",
+    category: "MARKETING & REWARDS",
+    icon: Star,
+    tagline: "Turn every happy customer into a five-star review.",
     description:
-      "A 24/7 online radio streaming experience focused on South Indian music, delivering continuous high-fidelity audio streams globally.",
+      "A review management platform that tracks staff-level customer interactions and channels positive sentiment straight to your public review profile — giving businesses a measurable, QR-driven way to build their online reputation.",
     highlights: [
-      "Uninterrupted High-Fidelity Audio Stream",
-      "Dynamic Metadata & Now Playing Display",
-      "Cross-Platform Web & Mobile Player UI",
-      "Low Latency Global CDN Distribution",
+      "Unique QR code per staff member for instant review capture",
+      "Staff performance and ratings leaderboard",
+      "Smart redirection of positive feedback to public review profiles",
+      "Multi-business, multi-tenant dashboard",
+      "Rating analytics and sentiment breakdown",
+      "Exportable review reports",
     ],
-    techStack: ["Global Edge CDN", "Dynamic ID3 Tags", "React Player", "Audio Transcoding"],
-    badge: "LIVE 24/7 STREAM",
-    image: "https://images.pexels.com/photos/3351407/pexels-photo-3351407.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop",
+    techStack: ["Dynamic QR", "Sentiment Classifier", "Google Review API", "FastAPI"],
+    badge: "REPUTATION ENGINE",
+    image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1200&q=80",
+  },
+
+  // 6. Sustainability & Climate Tech
+  {
+    id: "carbon-mrv",
+    title: "CARBONMRV",
+    category: "SUSTAINABILITY",
+    icon: Leaf,
+    tagline: "Turning real-world climate action into verified carbon credits.",
+    description:
+      "CarbonMRV is a Digital Measurement, Reporting and Verification (DMRV) platform paired with in-house IoT sensor hardware, purpose-built for carbon credit programs — starting with electric vehicle adoption and clean cookstove projects. It captures ground-truth usage data at the source, transmits it securely, and turns it into audit-ready evidence that registries, verifiers and credit buyers can trust.",
+    highlights: [
+      "Custom-designed IoT sensors for EV usage & cookstove usage",
+      "Real-time, secure data capture and transmission from field devices",
+      "Automated MRV data pipelines aligned with leading methodologies",
+      "Tamper-resistant, geo-tagged and timestamped device data",
+      "Project dashboard for monitoring emissions reduction in real time",
+      "Automated report generation for registries and third-party verifiers",
+      "Scalable device fleet management across distributed project sites",
+    ],
+    techStack: ["In-House IoT Hardware", "Cellular Telemetry", "Cryptographic Signatures", "DMRV Pipeline"],
+    badge: "CLIMATE DMRV & IOT",
+    image: "https://images.unsplash.com/photo-1508739773434-c26b3d09e071?auto=format&fit=crop&w=1200&q=80",
+  },
+
+  // 7. Events
+  {
+    id: "eventease",
+    title: "EVENTEASE",
+    category: "EVENTS",
+    icon: CalendarCheck,
+    tagline: "From invite to check-in, seamlessly.",
+    description:
+      "EventEase helps event managers run seamless registration and check-in for gatherings of any size — from boutique meetings to international summits — with personalized invites, QR-based entry passes and real-time reporting.",
+    highlights: [
+      "Email and WhatsApp invite integration",
+      "Unique registration link per attendee",
+      "QR code entry pass generation",
+      "Multiple check-in points, including hotel check-in",
+      "Admin console with camera-based scanning",
+      "Real-time attendance reporting",
+    ],
+    techStack: ["QR Fast Scanner", "WebSockets", "Serverless Edge", "PDF Engine"],
+    badge: "SEAMLESS CHECK-IN",
+    image: "https://images.pexels.com/photos/2747449/pexels-photo-2747449.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop",
   },
 ];
 
 const categoryTabs = [
   "ALL PRODUCTS",
-  "MEDIA & BROADCAST",
-  "CRM & EDUCATION",
-  "RETAIL & MARKETING",
-  "ANALYTICS & NLP",
+  "MEDIA & BROADCASTING",
+  "HEALTHCARE",
+  "EDUCATION",
+  "ENTERPRISE CRM & ERP",
+  "MARKETING & REWARDS",
+  "SUSTAINABILITY",
+  "EVENTS",
 ];
 
 export default function ProductsPage() {
@@ -258,9 +433,6 @@ export default function ProductsPage() {
 
   return (
     <SmoothScroll>
-      <ScrollProgress />
-      <Cursor isEnabled={motionEnabled} />
-
       <Navbar
         onContactClick={() => handleOpenContact()}
         motionEnabled={motionEnabled}
@@ -285,11 +457,11 @@ export default function ProductsPage() {
             </div>
 
             <h1 className="prod-hero-anim text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-[#171717] leading-[1.08] max-w-5xl mb-6">
-              Engineered for <span className="text-[#c8102e]">Measurable Impact</span>.
+              Purpose-Built Platforms for <span className="text-[#c8102e]">Real Outcomes</span>.
             </h1>
 
             <p className="prod-hero-anim text-lg sm:text-2xl text-slate-700 max-w-3xl leading-relaxed font-normal mb-10">
-              Explore our full suite of proprietary platforms — from in-house Automatic Content Recognition (ACR) and 24/7 broadcast engines to specialized enterprise CRMs and retail gamification portals.
+              Purpose-built platforms designed for real business outcomes. Explore our growing suite of products across media, healthcare, education, retail, sustainability and enterprise operations.
             </p>
 
             {/* Filter & Search Bar */}
@@ -329,19 +501,9 @@ export default function ProductsPage() {
         {/* 2. PRODUCTS SHOWCASE GRID (Warm Cream Background) */}
         <section className="relative z-10 py-24 lg:py-32 px-4 sm:px-8 lg:px-12 bg-[#f6f4ee] text-[#171717] border-t border-[#e2dcd2]">
           <div className="max-w-7xl mx-auto">
-            {/* Section Index Divider */}
-            <div className="flex items-center justify-between pb-6 mb-16 border-b border-[#e2dcd2] text-[11px] font-mono tracking-widest text-slate-500 uppercase">
-              <div className="flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#c8102e]" />
-                <span className="font-bold text-[#c8102e]">01 //</span>
-                <span>PRODUCT CATALOG</span>
-              </div>
-              <span className="hidden sm:inline-block text-slate-400">PROPRIETARY SYSTEMS</span>
-            </div>
-
             {filteredProducts.length === 0 ? (
               <div className="text-center py-20 bg-white rounded-3xl border border-[#e8e4dc] p-8 shadow-sm">
-                <Faders className="w-10 h-10 text-[#c8102e] mx-auto mb-4" weight="duotone" />
+                <MagnifyingGlass className="w-10 h-10 text-[#c8102e] mx-auto mb-4" weight="duotone" />
                 <h3 className="text-2xl font-bold text-[#171717] mb-2">No products match your filter</h3>
                 <p className="text-slate-600 text-sm max-w-md mx-auto mb-6">
                   Try adjusting your search query or selecting &ldquo;ALL PRODUCTS&rdquo; to view the complete catalog.
@@ -459,16 +621,6 @@ export default function ProductsPage() {
         {/* 3. ENTERPRISE ENGINEERING STANDARDS (White Background) */}
         <section className="relative z-20 py-28 lg:py-32 px-4 sm:px-8 lg:px-12 bg-white text-[#171717] border-t border-slate-200 overflow-hidden">
           <div className="max-w-7xl mx-auto">
-            {/* Section Index Divider */}
-            <div className="flex items-center justify-between pb-6 mb-16 border-b border-slate-200 text-[11px] font-mono tracking-widest text-slate-500 uppercase">
-              <div className="flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#c8102e]" />
-                <span className="font-bold text-[#c8102e]">02 //</span>
-                <span>ARCHITECTURAL STANDARDS</span>
-              </div>
-              <span className="hidden sm:inline-block text-slate-400">ENTERPRISE RIGOR</span>
-            </div>
-
             <div className="max-w-3xl mb-16 flex flex-col gap-3">
               <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#c8102e]">
                 ENTERPRISE RIGOR
@@ -518,24 +670,14 @@ export default function ProductsPage() {
         {/* 4. FINAL CTA (Warm Cream Background) */}
         <section className="relative z-30 py-28 lg:py-32 px-4 sm:px-8 lg:px-12 bg-[#f6f4ee] text-[#171717] border-t border-[#e2dcd2] text-center">
           <div className="max-w-4xl mx-auto flex flex-col items-center gap-6">
-            {/* Section Index Divider */}
-            <div className="w-full flex items-center justify-between pb-6 mb-10 border-b border-[#e2dcd2] text-[11px] font-mono tracking-widest text-slate-500 uppercase">
-              <div className="flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#c8102e]" />
-                <span className="font-bold text-[#c8102e]">03 //</span>
-                <span>PLATFORM INQUIRY</span>
-              </div>
-              <span className="hidden sm:inline-block text-slate-400">SCHEDULE A DEMO</span>
-            </div>
-
             <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#c8102e]">
-              DEPLOY A PROPRIETARY SYSTEM
+              READY TO IMPROVE YOUR SIGNALS?
             </span>
             <h2 className="text-4xl sm:text-6xl font-extrabold tracking-tight text-[#171717] leading-tight">
-              Ready to deploy or customize a platform?
+              Ready to improve your signals?
             </h2>
             <p className="text-slate-600 text-base sm:text-xl max-w-2xl font-normal leading-relaxed">
-              Schedule a technical demo or talk with our engineering architects to explore how our products integrate into your operations.
+              Whether it&apos;s a new platform, a broadcast upgrade or a connected device network — we&apos;re ready to help you build it.
             </p>
 
             <div className="flex flex-wrap items-center justify-center gap-4 mt-6">
@@ -544,7 +686,7 @@ export default function ProductsPage() {
                 className="px-8 py-4 rounded-full bg-[#c8102e] hover:bg-[#171717] text-white text-xs font-bold uppercase tracking-widest transition-all duration-300 shadow-xl shadow-[#c8102e]/30 flex items-center gap-2 cursor-pointer"
                 data-cursor="magnetic"
               >
-                <span>Request Live Demo</span>
+                <span>Contact Us</span>
                 <ArrowUpRight className="w-4 h-4" weight="bold" />
               </button>
 
@@ -553,7 +695,7 @@ export default function ProductsPage() {
                 className="px-8 py-4 rounded-full bg-white hover:bg-slate-100 text-slate-800 border border-slate-300 shadow-sm text-xs font-bold uppercase tracking-widest transition-all duration-300 flex items-center gap-2 cursor-pointer"
                 data-cursor="magnetic"
               >
-                <span>Explore Custom Services</span>
+                <span>Explore Solutions</span>
               </Link>
             </div>
           </div>

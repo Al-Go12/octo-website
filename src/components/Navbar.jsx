@@ -106,7 +106,7 @@ export default function Navbar({ onContactClick, motionEnabled = true, setMotion
                   ? "bg-slate-100 text-[#c8102e] font-bold"
                   : "bg-slate-100 text-slate-500"
               }`}
-              title="Toggle Smooth Motion & Cursor FX"
+              title="Toggle Smooth Motion"
             >
               <span className={`w-2 h-2 rounded-full ${motionEnabled ? "bg-[#c8102e]" : "bg-slate-400"}`} />
               <span>FX: {motionEnabled ? "ON" : "OFF"}</span>

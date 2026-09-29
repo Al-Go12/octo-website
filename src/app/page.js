@@ -3,7 +3,6 @@
 import { useState } from "react";
 import SmoothScroll from "@/components/SmoothScroll";
 import ScrollProgress from "@/components/ScrollProgress";
-import Cursor from "@/components/Cursor";
 import Navbar from "@/components/Navbar";
 
 import Hero from "@/components/Hero";
@@ -32,7 +31,6 @@ export default function Home() {
   return (
     <SmoothScroll>
       <ScrollProgress />
-      <Cursor isEnabled={motionEnabled} />
 
 
       <Navbar

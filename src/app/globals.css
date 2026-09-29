@@ -1,6 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Marcellus&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 @import "tailwindcss";
 
+@theme {
+  --font-sans: "Marcellus", serif;
+  --font-serif: "Marcellus", serif;
+}
+
+/* Dedicated Logo Font Styles (Ubuntu font) */
 .font-ubuntu,
 .font-ubuntu * {
   font-family: 'Ubuntu', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
@@ -19,9 +25,14 @@
   font-weight: 700 !important;
 }
 
+.font-marcellus {
+  font-family: "Marcellus", serif !important;
+}
+
 @layer base {
   :root {
-    --font-suisse: "Suisse Intl", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --font-marcellus: "Marcellus", serif;
+    --font-suisse: "Marcellus", serif;
     --brand-red: #c8102e;
     --brand-red-dark: #a80c24;
     --bg-light: #fafafa;
@@ -34,18 +45,23 @@
     scroll-behavior: auto !important;
     background-color: var(--bg-light);
     color: var(--text-primary);
-    font-family: var(--font-suisse);
+    font-family: "Marcellus", serif;
     -webkit-font-smoothing: antialiased;
   }
 
   body {
-    font-family: var(--font-suisse);
+    font-family: "Marcellus", serif;
     overflow-x: hidden;
     cursor: default;
   }
 
-  h1, h2, h3, h4, h5, h6, p, span, button, a, div {
-    font-family: var(--font-suisse);
+  h1, h2, h3, h4, h5, h6, p, span:not(.font-ubuntu):not(.font-ubuntu *):not(.font-ubuntu-italic):not(.font-ubuntu-italic *):not(.font-ubuntu-bold-italic):not(.font-ubuntu-bold-italic *), button, a:not(.font-ubuntu):not(.font-ubuntu *), div:not(.font-ubuntu):not(.font-ubuntu *), input, textarea, select {
+    font-family: "Marcellus", serif;
+  }
+
+  .font-mono,
+  .font-mono * {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important;
   }
 }
 
@@ -136,5 +152,55 @@ html.lenis, html.lenis body {
 
 .lift-on-hover:hover {
   transform: translateY(-6px);
+}
+
+/* OctoSignals Signature Crimson Gradient (Inspired by Sustainable Mindz Iridescent Blend) */
+.gradient-text-red {
+  background: linear-gradient(91deg, #ff7a6b 0%, #c8102e 48%, #85001a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-text-amber-red {
+  background: linear-gradient(91deg, #ff9f43 0%, #ff4d6d 50%, #c8102e 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Reverse Marquee for Dual-Direction Tech Stacks */
+@keyframes marquee-reverse {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.animate-marquee-reverse {
+  display: flex;
+  width: max-content;
+  animation: marquee-reverse 35s linear infinite;
+}
+
+.animate-marquee-reverse:hover {
+  animation-play-state: paused;
+}
+
+/* Sticky Stacking Cards System */
+.pinned-stack-container {
+  position: relative;
+  width: 100%;
+}
+
+.pinned-stack-card {
+  position: sticky;
+  top: 96px;
+  will-change: transform, opacity;
+  transform-origin: center top;
+}
+
+.bg-radial-red-mesh {
+  background: radial-gradient(circle at 50% 0%, rgba(200, 16, 46, 0.08) 0%, transparent 65%);
 }
 

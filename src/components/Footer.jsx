@@ -37,23 +37,41 @@ export default function Footer() {
             </Link>
 
             {/* Pill Contact Buttons */}
-            <div className="flex flex-wrap items-center gap-4">
+            <div className="flex flex-wrap items-center gap-3">
               <a
-                href="mailto:info@octosignals.com"
-                className="px-6 py-3 rounded-full bg-white/10 border border-white/15 hover:border-[#c8102e] text-xs font-mono font-bold text-white transition-all flex items-center gap-2"
+                href="mailto:hello@octosignals.com"
+                className="px-5 py-2.5 rounded-full bg-white/10 border border-white/15 hover:border-[#c8102e] text-xs font-mono font-bold text-white transition-all flex items-center gap-2"
                 data-cursor="magnetic"
               >
                 <EnvelopeSimple className="w-4 h-4 text-[#c8102e]" weight="duotone" />
-                <span>info@octosignals.com</span>
+                <span>hello@octosignals.com</span>
               </a>
 
               <a
                 href="tel:+917994477790"
-                className="px-6 py-3 rounded-full bg-white/10 border border-white/15 hover:border-[#c8102e] text-xs font-mono font-bold text-white transition-all flex items-center gap-2"
+                className="px-5 py-2.5 rounded-full bg-white/10 border border-white/15 hover:border-[#c8102e] text-xs font-mono font-bold text-white transition-all flex items-center gap-2"
                 data-cursor="magnetic"
               >
                 <Phone className="w-4 h-4 text-[#c8102e]" weight="duotone" />
-                <span>+91 79944 77790</span>
+                <span>+91 79944 77790 (India)</span>
+              </a>
+
+              <a
+                href="tel:+971558044945"
+                className="px-5 py-2.5 rounded-full bg-white/10 border border-white/15 hover:border-[#c8102e] text-xs font-mono font-bold text-white transition-all flex items-center gap-2"
+                data-cursor="magnetic"
+              >
+                <Phone className="w-4 h-4 text-[#c8102e]" weight="duotone" />
+                <span>+971 55804 4945 (Dubai)</span>
+              </a>
+
+              <a
+                href="tel:+96895865983"
+                className="px-5 py-2.5 rounded-full bg-white/10 border border-white/15 hover:border-[#c8102e] text-xs font-mono font-bold text-white transition-all flex items-center gap-2"
+                data-cursor="magnetic"
+              >
+                <Phone className="w-4 h-4 text-[#c8102e]" weight="duotone" />
+                <span>+968 9586 5983 (Oman)</span>
               </a>
             </div>
 
@@ -64,7 +82,7 @@ export default function Footer() {
                   INDIA (HQ)
                 </span>
                 <p className="text-slate-400 leading-relaxed font-normal">
-                  Ponnurunni, Vyttila, Kochi, Kerala 682019
+                  Bluemoon Pearl, Ponnurunni, Vyttila, Kochi 682019
                 </p>
               </div>
 
@@ -73,7 +91,7 @@ export default function Footer() {
                   UAE OFFICE
                 </span>
                 <p className="text-slate-400 leading-relaxed font-normal">
-                  Dubai Silicon Oasis, UAE
+                  Dubai, UAE · +971 55804 4945
                 </p>
               </div>
 
@@ -82,16 +100,16 @@ export default function Footer() {
                   OMAN OFFICE
                 </span>
                 <p className="text-slate-400 leading-relaxed font-normal">
-                  Muscat Technology Hub, Oman
+                  Muscat, Oman · +968 9586 5983
                 </p>
               </div>
 
               <div>
                 <span className="font-bold uppercase tracking-wider text-[#c8102e] block mb-1">
-                  US PRESENCE
+                  US OPERATIONS
                 </span>
                 <p className="text-slate-400 leading-relaxed font-normal">
-                  Delaware / East Coast US
+                  Active operations across US client markets
                 </p>
               </div>
             </div>
@@ -130,7 +148,7 @@ export default function Footer() {
               <Link href="/about#presence" className="text-slate-300 hover:text-[#c8102e] transition-colors">
                 Global Footprint
               </Link>
-              <a href="mailto:info@octosignals.com" className="text-slate-300 hover:text-[#c8102e] transition-colors">
+              <a href="mailto:hello@octosignals.com" className="text-slate-300 hover:text-[#c8102e] transition-colors">
                 Get In Touch
               </a>
             </div>

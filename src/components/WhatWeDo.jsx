@@ -9,68 +9,41 @@ import { ArrowUpRight, CheckCircle } from "@phosphor-icons/react";
 const services = [
   {
     id: "01",
-    title: "Technology Strategy & Consulting",
+    title: "IT Solutions",
     description:
-      "We help businesses identify the right technology direction, simplify complex challenges, and turn ideas into practical technology strategies.",
+      "Custom software development, web & mobile applications, system integration, e-commerce platforms, CRM systems and digital newsroom solutions. Purpose-built tools that improve efficiency and scale with your operations.",
     features: [
-      "Technology Direction & Roadmap",
-      "Architecture & System Audits",
-      "Feasibility & Platform Selection",
+      "Custom software & product development",
+      "Web & mobile applications",
+      "System integration",
+      "E-commerce solutions",
+      "CRM & ERP platforms",
+      "News & video publishing platforms",
     ],
   },
   {
     id: "02",
-    title: "Software & Product Development",
+    title: "Broadcasting Solutions",
     description:
-      "We design and build custom digital products, web applications, mobile applications, platforms, dashboards, and business systems around real business needs.",
+      "End-to-end FM radio services including consultation, transmission, studio setup, satellite & microwave links, online and community/campus radio, plus media monitoring powered by Automatic Content Recognition (ACR). As a leading systems integrator, we handle everything from planning to transmitter installation and 24/7 maintenance.",
     features: [
-      "Custom Web & Mobile Platforms",
-      "Enterprise Dashboards",
-      "Scalable Cloud Backend Systems",
+      "FM radio consultation & transmission",
+      "Studio solutions & acoustics",
+      "Satellite & microwave links",
+      "Online & community/campus radio",
+      "Media monitoring powered by in-house ACR",
     ],
   },
   {
     id: "03",
-    title: "Technology Integration",
+    title: "IoT Solutions",
     description:
-      "We connect systems, platforms, data, and workflows to create seamless digital ecosystems that work together.",
+      "Embedded designs and automation systems that connect devices, improve data access and enable smarter operational decisions. Our in-house R&D and engineering team designs, develops and manufactures customized electronic devices — turning disconnected equipment into a connected, data-driven operation.",
     features: [
-      "API & Pipeline Engineering",
-      "Data Synchronization & Automation",
-      "Legacy & Cloud System Bridges",
-    ],
-  },
-  {
-    id: "04",
-    title: "Creative Technology",
-    description:
-      "We combine software, interaction, AI, motion, and emerging technologies to create engaging digital experiences beyond conventional websites and applications.",
-    features: [
-      "Interactive Motion & WebGL",
-      "Experiential Kiosks & Displays",
-      "Digital Brand Systems",
-    ],
-  },
-  {
-    id: "05",
-    title: "Broadcast & Media Technology",
-    description:
-      "We build technology solutions for broadcasting, radio, media monitoring, streaming, content recognition, and digital media operations.",
-    features: [
-      "Automatic Content Recognition (ACR)",
-      "24/7 Broadcast Streaming",
-      "Media Monitoring & Analytics",
-    ],
-  },
-  {
-    id: "06",
-    title: "AI & Intelligent Solutions",
-    description:
-      "We use artificial intelligence, automation, computer vision, natural language processing, and data-driven technologies to solve practical business problems.",
-    features: [
-      "Computer Vision & ACR",
-      "Natural Language Processing",
-      "Predictive Data Pipelines",
+      "Embedded system design",
+      "Device connectivity & automation",
+      "Data-driven decision systems",
+      "Custom hardware R&D and manufacturing",
     ],
   },
 ];
@@ -148,7 +121,7 @@ export default function WhatWeDo() {
               SOLUTIONS DIRECTORY
             </span>
             <h2 className="text-4xl sm:text-6xl font-extrabold text-[#171717] tracking-tight leading-tight">
-              Our Capabilities
+              Our <span className="gradient-text-red">Capabilities</span>
             </h2>
           </div>
 
@@ -246,8 +219,87 @@ export default function WhatWeDo() {
           })}
         </div>
 
+        {/* Dual-Direction Technology Stack Marquee (Inspired by Sustainable Mindz) */}
+        <div className="mt-20 pt-16 border-t border-slate-200">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4">
+            <div>
+              <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#c8102e]">
+                ENTERPRISE STACK
+              </span>
+              <h3 className="text-2xl sm:text-3xl font-extrabold text-[#171717] mt-1">
+                Battle-Tested Architecture
+              </h3>
+            </div>
+            <span className="text-xs font-mono text-slate-500 uppercase tracking-widest">
+              CONTINUOUS 24/7 CONCURRENCY
+            </span>
+          </div>
+
+          <div className="relative overflow-hidden py-2 space-y-3 [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+            {/* Row 1: Left to Right Marquee */}
+            <div className="animate-marquee flex items-center gap-3">
+              {[
+                "Next.js 16 (Turbopack)",
+                "Python ACR Core",
+                "Rust Concurrency Engine",
+                "Apache Kafka Pipelines",
+                "WebSockets Telemetry",
+                "TimescaleDB Time-Series",
+                "HLS Streaming Cloud",
+                "Icecast 2.4 Radio Stream",
+                "Next.js 16 (Turbopack)",
+                "Python ACR Core",
+                "Rust Concurrency Engine",
+                "Apache Kafka Pipelines",
+                "WebSockets Telemetry",
+                "TimescaleDB Time-Series",
+                "HLS Streaming Cloud",
+                "Icecast 2.4 Radio Stream",
+              ].map((tech, idx) => (
+                <div
+                  key={idx}
+                  className="px-5 py-2.5 rounded-full bg-[#f6f4ee] border border-[#e8e4dc] text-xs font-mono font-semibold text-slate-800 flex items-center gap-2 hover:border-[#c8102e] hover:bg-white transition-all cursor-default shrink-0 shadow-sm"
+                >
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#c8102e]" />
+                  <span>{tech}</span>
+                </div>
+              ))}
+            </div>
+
+            {/* Row 2: Right to Left Marquee */}
+            <div className="animate-marquee-reverse flex items-center gap-3">
+              {[
+                "Cloudflare Edge R2",
+                "PostgreSQL Core DB",
+                "Redis Cache Cluster",
+                "Computer Vision Audits",
+                "WhatsApp Cloud Business API",
+                "Docker Containers",
+                "AWS EventBridge",
+                "GraphQL APIs",
+                "Cloudflare Edge R2",
+                "PostgreSQL Core DB",
+                "Redis Cache Cluster",
+                "Computer Vision Audits",
+                "WhatsApp Cloud Business API",
+                "Docker Containers",
+                "AWS EventBridge",
+                "GraphQL APIs",
+              ].map((tech, idx) => (
+                <div
+                  key={idx}
+                  className="px-5 py-2.5 rounded-full bg-[#f6f4ee] border border-[#e8e4dc] text-xs font-mono font-semibold text-slate-800 flex items-center gap-2 hover:border-[#c8102e] hover:bg-white transition-all cursor-default shrink-0 shadow-sm"
+                >
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#171717]" />
+                  <span>{tech}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
         {/* View All Services CTA Banner */}
-        <div className="mt-16 p-8 sm:p-10 rounded-3xl bg-slate-50 border border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-sm">
+        <div className="mt-14 p-8 sm:p-10 rounded-3xl bg-[#f6f4ee] border border-[#e8e4dc] flex flex-col sm:flex-row items-center justify-between gap-6 shadow-sm">
           <div className="flex flex-col gap-2 text-center sm:text-left">
             <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#c8102e]">
               FULL SERVICE ARCHITECTURE

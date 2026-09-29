@@ -71,93 +71,115 @@ export default function ContactModal({ isOpen, onClose, initialProduct = "" }) {
           </div>
         ) : (
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#c8102e]/10 text-xs font-bold text-[#c8102e] mb-4">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#c8102e]/10 text-xs font-bold text-[#c8102e] mb-3">
               <Sparkle className="w-3.5 h-3.5" weight="duotone" />
               <span>OCTOSIGNALS INQUIRY</span>
             </div>
 
-            <h3 className="text-3xl font-extrabold text-[#171717] mb-2">
-              Let&apos;s Build The Right Solution.
+            <h3 className="text-2xl sm:text-3xl font-extrabold text-[#171717] mb-2 tracking-tight">
+              Let&apos;s discuss your next project.
             </h3>
-            <p className="text-slate-600 text-xs sm:text-sm mb-6">
-              Tell us about your project or technology requirement and our engineering team will get back to you promptly.
+            <p className="text-slate-600 text-xs sm:text-sm mb-5 leading-relaxed">
+              Whether it&apos;s a new platform, a broadcast upgrade or a connected device network — we&apos;re ready to help you build it.
             </p>
 
-            <form onSubmit={handleSubmit} className="space-y-4">
+            {/* Direct Contact strip */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 p-3 rounded-2xl bg-[#f6f4ee] border border-[#e2dcd2] mb-5 text-[11px]">
               <div>
-                <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
-                  Your Name
-                </label>
-                <input
-                  type="text"
-                  required
-                  value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  placeholder="e.g. Sarah Jenkins"
-                  className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-[#c8102e] bg-slate-50"
-                />
+                <span className="font-bold text-[#c8102e] block uppercase">India HQ</span>
+                <a href="tel:+917994477790" className="text-slate-700 hover:text-[#c8102e] font-mono">
+                  +91 79944 77790
+                </a>
               </div>
+              <div>
+                <span className="font-bold text-[#c8102e] block uppercase">Dubai / Oman</span>
+                <span className="text-slate-700 font-mono block">+971 55804 4945</span>
+              </div>
+              <div>
+                <span className="font-bold text-[#c8102e] block uppercase">Email</span>
+                <a href="mailto:hello@octosignals.com" className="text-slate-700 hover:text-[#c8102e] font-mono">
+                  hello@octosignals.com
+                </a>
+              </div>
+            </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <form onSubmit={handleSubmit} className="space-y-3.5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                 <div>
                   <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
-                    Email Address
-                  </label>
-                  <input
-                    type="email"
-                    required
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    placeholder="sarah@company.com"
-                    className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-[#c8102e] bg-slate-50"
-                  />
-                </div>
-                <div>
-                  <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
-                    Company / Org
+                    Name
                   </label>
                   <input
                     type="text"
-                    value={formData.company}
-                    onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                    placeholder="e.g. Broadcast Network"
-                    className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-[#c8102e] bg-slate-50"
+                    required
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    placeholder="Your Full Name"
+                    className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-[#c8102e] bg-slate-50"
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
+                    Phone / WhatsApp
+                  </label>
+                  <input
+                    type="tel"
+                    required
+                    value={formData.phone || ""}
+                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                    placeholder="+91 98765 43210"
+                    className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-[#c8102e] bg-slate-50"
                   />
                 </div>
               </div>
 
               <div>
                 <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
-                  Product / Service Interest
+                  Email
                 </label>
                 <input
-                  type="text"
-                  value={formData.productInterest}
-                  onChange={(e) => setFormData({ ...formData, productInterest: e.target.value })}
-                  placeholder="e.g. Audioprints ACR, Octo Campus CRM, Strategy"
-                  className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-[#c8102e] bg-slate-50"
+                  type="email"
+                  required
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  placeholder="your.email@company.com"
+                  className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-[#c8102e] bg-slate-50"
                 />
               </div>
 
+              {formData.productInterest && (
+                <div>
+                  <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
+                    Product / Solution of Interest
+                  </label>
+                  <input
+                    type="text"
+                    value={formData.productInterest}
+                    onChange={(e) => setFormData({ ...formData, productInterest: e.target.value })}
+                    className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-[#c8102e] bg-slate-50"
+                  />
+                </div>
+              )}
+
               <div>
                 <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
-                  Project Challenge
+                  Message
                 </label>
                 <textarea
                   rows={3}
                   required
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  placeholder="Briefly describe what you're trying to solve..."
-                  className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-[#c8102e] bg-slate-50"
+                  placeholder="Tell us about your project, platform, or requirement..."
+                  className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-[#c8102e] bg-slate-50"
                 />
               </div>
 
               <button
                 type="submit"
-                className="w-full py-4 rounded-xl bg-[#c8102e] hover:bg-[#a80c24] text-white text-xs font-bold uppercase tracking-widest transition-all flex items-center justify-center gap-2 shadow-lg shadow-[#c8102e]/30"
+                className="w-full py-3.5 rounded-xl bg-[#c8102e] hover:bg-[#a80c24] text-white text-xs font-bold uppercase tracking-widest transition-all flex items-center justify-center gap-2 shadow-lg shadow-[#c8102e]/30 cursor-pointer"
               >
-                <span>Submit Inquiry</span>
+                <span>Send Message</span>
                 <PaperPlaneRight className="w-4 h-4" weight="bold" />
               </button>
             </form>

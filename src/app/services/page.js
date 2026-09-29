@@ -24,99 +24,55 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactModal from "@/components/ContactModal";
 import SmoothScroll from "@/components/SmoothScroll";
-import ScrollProgress from "@/components/ScrollProgress";
-import Cursor from "@/components/Cursor";
 
 const detailedServices = [
   {
     id: "01",
-    icon: Compass,
-    title: "Technology Strategy & Consulting",
-    tagline: "Clarity and strategic direction for complex technology investments.",
+    icon: Code,
+    title: "IT Solutions",
+    tagline: "Purpose-built tools that improve efficiency and scale with your operations.",
     summary:
-      "We help businesses identify the right technology direction, simplify complex challenges, and turn ideas into practical technology strategies.",
+      "Custom software development, web & mobile applications, system integration, e-commerce platforms, CRM systems and digital newsroom solutions. Purpose-built tools that improve efficiency and scale with your operations.",
     deliverables: [
-      "Technology Direction & 3-Year Strategic Roadmaps",
-      "System Architecture Audits & Tech Debt Remediation",
-      "Feasibility, Tech Stack & Platform Selection",
-      "Cloud Cost & Infrastructure Optimization Reviews",
+      "Custom software & product development",
+      "Web & mobile applications",
+      "System integration",
+      "E-commerce solutions",
+      "CRM & ERP platforms",
+      "News & video publishing platforms",
     ],
-    outcomes: "Eliminate costly trial-and-error, reduce operational friction, and align IT with business ROI.",
+    outcomes: "Eliminate operational friction, automate multi-department handoffs, and scale digital operations securely.",
   },
   {
     id: "02",
-    icon: Code,
-    title: "Software & Product Development",
-    tagline: "End-to-end engineering of digital products built to scale.",
+    icon: Broadcast,
+    title: "Broadcasting Solutions",
+    tagline: "End-to-end FM radio, transmission, studio setup & media monitoring.",
     summary:
-      "We design and build custom digital products, web applications, mobile applications, platforms, dashboards, and business systems around real business needs.",
+      "End-to-end FM radio services including consultation, transmission, studio setup, satellite & microwave links, online and community/campus radio, plus media monitoring powered by Automatic Content Recognition (ACR). As a leading systems integrator for FM, community and online radio, we handle everything from project planning and regulatory guidance to studio setup, transmitter installation, and ongoing technical support and maintenance — so broadcasters can focus on content, not infrastructure.",
     deliverables: [
-      "Enterprise Web Applications & Customer Portals",
-      "Native & Cross-Platform Mobile Apps (iOS & Android)",
-      "High-Concurrency Microservices & Cloud Backends",
-      "Real-Time Data Visualization & Executive Dashboards",
+      "FM radio consultation & transmission",
+      "Studio solutions",
+      "Satellite & microwave links",
+      "Online & community/campus radio",
+      "Media monitoring (ACR)",
     ],
-    outcomes: "Robust, maintainable, and high-performance software tailored to your specific workflows.",
+    outcomes: "Turnkey broadcasting setups with reliable transmission, pristine acoustic engineering, and verified compliance airplay.",
   },
   {
     id: "03",
     icon: TreeStructure,
-    title: "Technology Integration",
-    tagline: "Connecting platforms, data, and workflows into cohesive ecosystems.",
+    title: "IoT Solutions",
+    tagline: "Embedded designs and automation systems that connect devices and enable smarter decisions.",
     summary:
-      "We connect systems, platforms, data, and workflows to create seamless digital ecosystems that work together without friction.",
+      "Embedded designs and automation systems that connect devices, improve data access and enable smarter operational decisions. Our in-house R&D and engineering team designs, develops and manufactures customized electronic devices — turning disconnected equipment into a connected, data-driven operation.",
     deliverables: [
-      "Enterprise API & Webhook Pipeline Engineering",
-      "Legacy Core to Cloud Modernization Bridges",
-      "Automated CRM, ERP & Billing Data Synchronization",
-      "Event-Driven Message Queues & Webhook Ingestion",
+      "Embedded system design",
+      "Device connectivity & automation",
+      "Data-driven decision systems",
+      "Custom sensor telemetry & DMRV hardware",
     ],
-    outcomes: "Unified operational data, automated multi-department handoffs, and zero manual duplicate entry.",
-  },
-  {
-    id: "04",
-    icon: Sparkle,
-    title: "Creative Technology",
-    tagline: "Engaging digital experiences that bridge software and human emotion.",
-    summary:
-      "We combine software, interaction, AI, motion, and emerging technologies to create engaging digital experiences beyond conventional websites and applications.",
-    deliverables: [
-      "Interactive 3D, WebGL & High-Performance Motion UI",
-      "Experiential Event Displays & Interactive Kiosks",
-      "Gamified Promotional Campaigns & Brand Portals",
-      "Digital Brand Systems & Immersive Micro-Experiences",
-    ],
-    outcomes: "Unforgettable customer engagement that amplifies brand presence and drives retention.",
-  },
-  {
-    id: "05",
-    icon: Broadcast,
-    title: "Broadcast & Media Technology",
-    tagline: "Mission-critical systems for radio, streaming, and content tracking.",
-    summary:
-      "We build technology solutions for broadcasting, radio, media monitoring, streaming, content recognition, and digital media operations.",
-    deliverables: [
-      "Proprietary In-House Automatic Content Recognition (ACR)",
-      "Continuous 24/7/365 Radio & Audio Stream Infrastructure",
-      "Automated Broadcast Ad Verification & Telemetry",
-      "Content Ingestion, Archiving & Metadata Systems",
-    ],
-    outcomes: "Verified broadcast reach, reliable streaming distribution, and actionable media intelligence.",
-  },
-  {
-    id: "06",
-    icon: Brain,
-    title: "AI & Intelligent Solutions",
-    tagline: "Practical AI that automates workflows and unlocks intelligence.",
-    summary:
-      "We use artificial intelligence, automation, computer vision, natural language processing, and data-driven technologies to solve practical business problems.",
-    deliverables: [
-      "Computer Vision for Brand & Image Submission Auditing",
-      "NLP Sentiment Analysis for Multi-Channel Messaging",
-      "Automated Triage & Intelligent Escalation Bots",
-      "Predictive Analytics & Anomaly Detection Engines",
-    ],
-    outcomes: "Dramatic reductions in manual processing time and proactive identification of trends.",
+    outcomes: "Real-time field telemetry, verified edge data capture, and automated decision-making workflows.",
   },
 ];
 
@@ -186,9 +142,6 @@ export default function ServicesPage() {
 
   return (
     <SmoothScroll>
-      <ScrollProgress />
-      <Cursor isEnabled={motionEnabled} />
-
       <Navbar
         onContactClick={() => handleOpenContact()}
         motionEnabled={motionEnabled}
@@ -208,16 +161,16 @@ export default function ServicesPage() {
             <div className="serv-hero-anim flex items-center gap-2 mb-6">
               <span className="w-2 h-2 rounded-full bg-[#c8102e]" />
               <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#c8102e]">
-                SERVICES & CAPABILITIES
+                SOLUTIONS & SERVICES
               </span>
             </div>
 
             <h1 className="serv-hero-anim text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-[#171717] leading-[1.08] max-w-5xl mb-6">
-              Engineering Scalable Solutions For <span className="text-[#c8102e]">Real Impact</span>.
+              Practical Technology Services <span className="text-[#c8102e]">Built for Scale</span>.
             </h1>
 
             <p className="serv-hero-anim text-lg sm:text-2xl text-slate-700 max-w-3xl leading-relaxed font-normal mb-10">
-              We combine technology strategy, software engineering, creative development, and domain expertise to build solutions that create measurable value across India, UAE, Oman, and the US.
+              Practical technology services designed for measurable business outcomes across IT solutions, broadcasting systems, and connected IoT devices.
             </p>
 
             <div className="serv-hero-anim flex flex-wrap items-center gap-4 pt-8 border-t border-slate-200/80">
@@ -226,7 +179,7 @@ export default function ServicesPage() {
                 className="px-8 py-4 rounded-full bg-[#c8102e] hover:bg-[#a80c24] text-white text-xs font-bold uppercase tracking-widest transition-all duration-300 shadow-lg shadow-[#c8102e]/30 flex items-center gap-2 cursor-pointer"
                 data-cursor="magnetic"
               >
-                <span>Discuss Your Project</span>
+                <span>Contact Us</span>
                 <ArrowUpRight className="w-4 h-4" weight="bold" />
               </button>
 
@@ -235,7 +188,7 @@ export default function ServicesPage() {
                 className="px-8 py-4 rounded-full bg-white hover:bg-slate-100 text-slate-800 border border-slate-300 text-xs font-bold uppercase tracking-widest transition-all duration-300 flex items-center gap-2 cursor-pointer"
                 data-cursor="magnetic"
               >
-                <span>Browse Software Products</span>
+                <span>Browse Products Catalog</span>
                 <ArrowUpRight className="w-4 h-4" weight="bold" />
               </Link>
             </div>
@@ -245,30 +198,20 @@ export default function ServicesPage() {
         {/* 2. CORE SERVICE PILLARS (Warm Cream Background) */}
         <section className="relative z-10 py-24 lg:py-32 px-4 sm:px-8 lg:px-12 bg-[#f6f4ee] text-[#171717] border-t border-[#e2dcd2]">
           <div className="max-w-7xl mx-auto">
-            {/* Section Index Divider */}
-            <div className="flex items-center justify-between pb-6 mb-16 border-b border-[#e2dcd2] text-[11px] font-mono tracking-widest text-slate-500 uppercase">
-              <div className="flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#c8102e]" />
-                <span className="font-bold text-[#c8102e]">01 //</span>
-                <span>6 CORE PILLARS</span>
-              </div>
-              <span className="hidden sm:inline-block text-slate-400">CAPABILITY SPECTRUM</span>
-            </div>
-
             <div className="max-w-3xl mb-16 flex flex-col gap-3">
               <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#c8102e]">
-                WHAT WE DO
+                OUR CAPABILITIES
               </span>
               <h2 className="text-4xl sm:text-6xl font-extrabold tracking-tight text-[#171717] leading-tight">
-                Our 6 Pillars of Engineering
+                Our 3 Solutions Pillars
               </h2>
               <p className="text-slate-700 text-base sm:text-lg leading-relaxed font-normal">
-                Tailored capabilities designed to modernize operations, automate workflows, and deliver resilient digital platforms.
+                Practical technology services designed for measurable business outcomes across software, media broadcasting, and IoT automation.
               </p>
             </div>
 
             {/* Detailed Services Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
               {detailedServices.map((service) => {
                 const IconComp = service.icon;
                 return (
@@ -339,16 +282,6 @@ export default function ServicesPage() {
         {/* 3. 5-STAGE DELIVERY METHODOLOGY (White Background) */}
         <section className="relative z-20 py-28 lg:py-32 px-4 sm:px-8 lg:px-12 bg-white text-[#171717] border-t border-slate-200 overflow-hidden">
           <div className="max-w-7xl mx-auto">
-            {/* Section Index Divider */}
-            <div className="flex items-center justify-between pb-6 mb-16 border-b border-slate-200 text-[11px] font-mono tracking-widest text-slate-500 uppercase">
-              <div className="flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#c8102e]" />
-                <span className="font-bold text-[#c8102e]">02 //</span>
-                <span>5-STAGE DELIVERY PROCESS</span>
-              </div>
-              <span className="hidden sm:inline-block text-slate-400">SYSTEMATIC EXECUTION</span>
-            </div>
-
             <div className="max-w-3xl mb-16 flex flex-col gap-3">
               <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#c8102e]">
                 SYSTEMATIC EXECUTION
@@ -392,16 +325,6 @@ export default function ServicesPage() {
         {/* 4. DOMAIN EXPERTISE HIGHLIGHT (Warm Cream Background) */}
         <section className="relative z-30 py-28 lg:py-32 px-4 sm:px-8 lg:px-12 bg-[#f6f4ee] text-[#171717] border-t border-[#e2dcd2] overflow-hidden">
           <div className="max-w-7xl mx-auto">
-            {/* Section Index Divider */}
-            <div className="flex items-center justify-between pb-6 mb-16 border-b border-[#e2dcd2] text-[11px] font-mono tracking-widest text-slate-500 uppercase">
-              <div className="flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#c8102e]" />
-                <span className="font-bold text-[#c8102e]">03 //</span>
-                <span>DOMAIN EXPERTISE</span>
-              </div>
-              <span className="hidden sm:inline-block text-slate-400">INDUSTRY SPECIALIZATIONS</span>
-            </div>
-
             <div className="max-w-3xl mb-16 flex flex-col gap-3">
               <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#c8102e]">
                 INDUSTRY SPECIALIZATIONS
@@ -410,7 +333,7 @@ export default function ServicesPage() {
                 Domain Expertise
               </h2>
               <p className="text-slate-600 text-base sm:text-lg leading-relaxed font-normal">
-                Deep vertical knowledge in media, education, and retail allows us to engineer software that addresses real industry nuances.
+                Deep vertical knowledge in media, education, healthcare, and retail allows us to engineer software that addresses real industry nuances.
               </p>
             </div>
 
@@ -428,7 +351,7 @@ export default function ServicesPage() {
                     Media & Broadcasting
                   </h3>
                   <p className="text-slate-600 text-sm leading-relaxed mb-6 font-normal">
-                    Technology solutions designed for media organizations, broadcasters, radio networks, and content-driven businesses.
+                    Turnkey FM transmission, studio acoustics, microwave links, and Automatic Content Recognition (ACR).
                   </p>
                   <div className="space-y-2 border-t border-slate-100 pt-4 text-xs text-slate-700">
                     <div className="flex items-center gap-2">
@@ -437,11 +360,11 @@ export default function ServicesPage() {
                     </div>
                     <div className="flex items-center gap-2">
                       <ShieldCheck className="w-4 h-4 text-[#c8102e]" weight="duotone" />
-                      <span>24/7 Digital Radio Streaming</span>
+                      <span>FM & Community Radio Infrastructure</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <ShieldCheck className="w-4 h-4 text-[#c8102e]" weight="duotone" />
-                      <span>Media Monitoring & Ad Analytics</span>
+                      <span>Verified Airplay & Compliance Reports</span>
                     </div>
                   </div>
                 </div>
@@ -457,10 +380,10 @@ export default function ServicesPage() {
                     STUDENT LIFECYCLE
                   </span>
                   <h3 className="text-2xl font-extrabold text-[#171717] mb-3">
-                    Education Technology
+                    Education CRM Systems
                   </h3>
                   <p className="text-slate-600 text-sm leading-relaxed mb-6 font-normal">
-                    Digital platforms and business solutions that simplify education operations, student management, communication, and engagement.
+                    Digital platforms that simplify education operations, lead distribution, multi-channel messaging, and enrollment tracking.
                   </p>
                   <div className="space-y-2 border-t border-slate-100 pt-4 text-xs text-slate-700">
                     <div className="flex items-center gap-2">
@@ -469,11 +392,11 @@ export default function ServicesPage() {
                     </div>
                     <div className="flex items-center gap-2">
                       <ShieldCheck className="w-4 h-4 text-[#c8102e]" weight="duotone" />
-                      <span>Document Vault & Verification Pipelines</span>
+                      <span>Automated Lead Distribution</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <ShieldCheck className="w-4 h-4 text-[#c8102e]" weight="duotone" />
-                      <span>Automated WhatsApp Nurturing</span>
+                      <span>WhatsApp, Call & Email Pipelines</span>
                     </div>
                   </div>
                 </div>
@@ -486,26 +409,26 @@ export default function ServicesPage() {
                     <ShoppingBag className="w-7 h-7" weight="duotone" />
                   </div>
                   <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-[#c8102e] block mb-2">
-                    LOYALTY & VISIBILITY
+                    LOYALTY & IOT
                   </span>
                   <h3 className="text-2xl font-extrabold text-[#171717] mb-3">
-                    Retail & Loyalty Systems
+                    Retail & IoT Telemetry
                   </h3>
                   <p className="text-slate-600 text-sm leading-relaxed mb-6 font-normal">
-                    Technology experiences that help retailers improve customer engagement, dealer promotions, loyalty, and business operations.
+                    Connected device networks, POS platforms, trade promotion management, and gamified customer reward campaigns.
                   </p>
                   <div className="space-y-2 border-t border-slate-100 pt-4 text-xs text-slate-700">
                     <div className="flex items-center gap-2">
                       <ShieldCheck className="w-4 h-4 text-[#c8102e]" weight="duotone" />
-                      <span>Interactive Gamification & Rewards</span>
+                      <span>Gamified Loyalty & OCR Bill Verification</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <ShieldCheck className="w-4 h-4 text-[#c8102e]" weight="duotone" />
-                      <span>Dealer Display Audits & Contests</span>
+                      <span>Custom IoT Sensor Telemetry</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <ShieldCheck className="w-4 h-4 text-[#c8102e]" weight="duotone" />
-                      <span>Receipt Verification & Anti-Fraud</span>
+                      <span>Trade Promotion & Dealer Contest Systems</span>
                     </div>
                   </div>
                 </div>
@@ -517,24 +440,14 @@ export default function ServicesPage() {
         {/* 5. FINAL CONSULTATION CTA (White Background) */}
         <section className="relative z-40 py-28 lg:py-32 px-4 sm:px-8 lg:px-12 bg-white text-[#171717] border-t border-slate-200 text-center">
           <div className="max-w-4xl mx-auto flex flex-col items-center gap-6">
-            {/* Section Index Divider */}
-            <div className="w-full flex items-center justify-between pb-6 mb-10 border-b border-slate-200 text-[11px] font-mono tracking-widest text-slate-500 uppercase">
-              <div className="flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#c8102e]" />
-                <span className="font-bold text-[#c8102e]">04 //</span>
-                <span>CONSULTATION</span>
-              </div>
-              <span className="hidden sm:inline-block text-slate-400">START A CONVERSATION</span>
-            </div>
-
             <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#c8102e]">
-              START A CONVERSATION
+              HAVE A PROJECT IN MIND?
             </span>
             <h2 className="text-4xl sm:text-6xl font-extrabold tracking-tight text-[#171717] leading-tight">
-              Let&apos;s engineer your next digital advantage.
+              Ready to improve your signals?
             </h2>
             <p className="text-slate-600 text-base sm:text-xl max-w-2xl font-normal leading-relaxed">
-              Tell us what you&apos;re trying to solve and let&apos;s find the technology strategy and software engineering that will move your business forward.
+              Whether it&apos;s a new platform, a broadcast upgrade or a connected device network — we&apos;re ready to help you build it.
             </p>
 
             <div className="flex flex-wrap items-center justify-center gap-4 mt-6">
@@ -543,7 +456,7 @@ export default function ServicesPage() {
                 className="px-8 py-4 rounded-full bg-[#c8102e] hover:bg-[#171717] text-white text-xs font-bold uppercase tracking-widest transition-all duration-300 shadow-xl shadow-[#c8102e]/30 flex items-center gap-2 cursor-pointer"
                 data-cursor="magnetic"
               >
-                <span>Schedule Discovery Call</span>
+                <span>Contact Us</span>
                 <ArrowUpRight className="w-4 h-4" weight="bold" />
               </button>
 

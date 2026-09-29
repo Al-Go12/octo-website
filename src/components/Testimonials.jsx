@@ -82,7 +82,7 @@ export default function Testimonials() {
             CLIENT TESTIMONIALS
           </span>
           <h2 className="text-4xl sm:text-6xl font-extrabold text-[#171717] tracking-tight leading-tight">
-            Trusted by our clients
+            Trusted by our <span className="gradient-text-red">clients</span>
           </h2>
           <p className="text-slate-600 text-base font-normal">
             Real feedback from enterprise partners, healthcare executives, and media networks we serve.

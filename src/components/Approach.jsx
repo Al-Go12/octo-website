@@ -138,7 +138,7 @@ export default function Approach() {
             </div>
 
             <h2 className="approach-header-item text-4xl sm:text-6xl font-extrabold text-[#171717] tracking-tight leading-[1.08]">
-              Guiding You in the Right Direction.
+              Guiding You in the <span className="gradient-text-red">Right Direction</span>
             </h2>
 
             <p className="approach-header-item text-slate-700 text-lg leading-relaxed font-normal">

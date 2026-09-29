@@ -59,7 +59,7 @@ export default function BrandTrust() {
       ref={sectionRef}
       className="relative py-24 lg:py-28 px-4 sm:px-8 lg:px-12 bg-white text-[#171717] border-t border-slate-200 overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto flex flex-col gap-12">
+      <div className="max-w-7xl mx-auto flex flex-col gap-14">
         {/* Sleek Top Section Identifier Bar */}
         <div className="flex items-center justify-between pb-6 border-b border-slate-200 text-[11px] font-mono tracking-widest text-slate-500 uppercase">
           <div className="flex items-center gap-2">
@@ -70,30 +70,87 @@ export default function BrandTrust() {
           <span className="hidden sm:inline-block text-slate-400">GLOBAL ENTERPRISE PARTNERS</span>
         </div>
 
-        <div className="flex flex-col items-center gap-2 text-center">
-          <span className="text-xs font-bold uppercase tracking-widest text-[#c8102e]">
-            CLIENTS WE WORK WITH
+        <div className="flex flex-col items-center gap-3 text-center max-w-3xl mx-auto">
+          <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#c8102e] bg-[#c8102e]/10 px-3 py-1 rounded-full border border-[#c8102e]/20">
+            PROVEN TRACK RECORD
           </span>
-          <h3 className="text-3xl sm:text-5xl font-extrabold text-[#171717] tracking-tight">
-            Trusted by Industry Leaders & Enterprises
+          <h3 className="text-3xl sm:text-5xl font-extrabold text-[#171717] tracking-tight leading-tight">
+            Trusted by Industry Leaders &amp;{" "}
+            <span className="gradient-text-red">Enterprises</span>
           </h3>
+          <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+            From premier broadcast radio networks in the Middle East to global education consultancies and retail brand leaders.
+          </p>
         </div>
 
-        {/* Client Logo Grid featuring extracted WordPress image URLs */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 items-center">
-          {clientLogos.map((logo, idx) => (
-            <div
-              key={idx}
-              className="trust-logo-card p-4 rounded-2xl bg-slate-50 border border-slate-200/80 flex items-center justify-center hover:border-[#c8102e] hover:shadow-md transition-all duration-300 group h-24 relative overflow-hidden"
-            >
-              <img
-                src={logo.src}
-                alt={logo.alt}
-                className="max-h-14 max-w-full object-contain grayscale group-hover:grayscale-0 transition-all duration-300"
-                loading="lazy"
-              />
-            </div>
-          ))}
+        {/* Infinite Seamless Client Logo Marquee with Edge Gradient Masks */}
+        <div className="relative w-full overflow-hidden py-4 [mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)]">
+          <div className="animate-marquee flex items-center gap-6">
+            {[...clientLogos, ...clientLogos].map((logo, idx) => (
+              <div
+                key={idx}
+                className="w-48 h-24 shrink-0 p-4 rounded-2xl bg-[#fafafa] border border-slate-200/80 flex items-center justify-center hover:border-[#c8102e] hover:shadow-lg hover:shadow-[#c8102e]/10 hover:bg-white transition-all duration-300 group cursor-pointer"
+              >
+                <img
+                  src={logo.src}
+                  alt={logo.alt}
+                  className="max-h-12 max-w-full object-contain grayscale opacity-75 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300 group-hover:scale-105"
+                  loading="lazy"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Agency Metrics Summary Bar (Inspired by Sustainable Mindz) */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 pt-8 border-t border-slate-100">
+          <div className="p-6 rounded-2xl bg-[#f6f4ee] border border-[#e8e4dc] flex flex-col justify-between">
+            <span className="text-3xl sm:text-4xl font-extrabold font-mono text-[#c8102e] block mb-1">
+              4
+            </span>
+            <span className="text-xs font-bold uppercase tracking-wider text-slate-800 block">
+              Global Tech Hubs
+            </span>
+            <span className="text-[11px] text-slate-500 mt-1">
+              India (HQ), UAE, Oman, USA
+            </span>
+          </div>
+
+          <div className="p-6 rounded-2xl bg-[#f6f4ee] border border-[#e8e4dc] flex flex-col justify-between">
+            <span className="text-3xl sm:text-4xl font-extrabold font-mono text-[#171717] block mb-1">
+              10+
+            </span>
+            <span className="text-xs font-bold uppercase tracking-wider text-slate-800 block">
+              Proprietary Platforms
+            </span>
+            <span className="text-[11px] text-slate-500 mt-1">
+              ACR, CRM, Media, Analytics
+            </span>
+          </div>
+
+          <div className="p-6 rounded-2xl bg-[#f6f4ee] border border-[#e8e4dc] flex flex-col justify-between">
+            <span className="text-3xl sm:text-4xl font-extrabold font-mono text-[#c8102e] block mb-1">
+              99.9%
+            </span>
+            <span className="text-xs font-bold uppercase tracking-wider text-slate-800 block">
+              Continuous Uptime
+            </span>
+            <span className="text-[11px] text-slate-500 mt-1">
+              Broadcast-grade monitoring
+            </span>
+          </div>
+
+          <div className="p-6 rounded-2xl bg-[#f6f4ee] border border-[#e8e4dc] flex flex-col justify-between">
+            <span className="text-3xl sm:text-4xl font-extrabold font-mono text-[#171717] block mb-1">
+              150+
+            </span>
+            <span className="text-xs font-bold uppercase tracking-wider text-slate-800 block">
+              Enterprise Projects
+            </span>
+            <span className="text-[11px] text-slate-500 mt-1">
+              High-concurrency deployments
+            </span>
+          </div>
         </div>
       </div>
     </section>

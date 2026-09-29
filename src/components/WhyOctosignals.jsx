@@ -114,7 +114,7 @@ export default function WhyOctosignals() {
           </div>
 
           <h2 className="text-4xl sm:text-6xl font-extrabold text-[#171717] tracking-tight leading-tight">
-            Technology should solve problems, not create more of them.
+            Technology should solve problems, <span className="gradient-text-red">not create more of them.</span>
           </h2>
 
           <p className="text-slate-700 text-lg leading-relaxed font-normal">

@@ -32,7 +32,7 @@ export default function RootLayout({ children }) {
       className="h-full antialiased scroll-smooth"
     >
       <body
-        style={{ fontFamily: '"Suisse Intl", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif' }}
+        style={{ fontFamily: '"Marcellus", serif' }}
         className="min-h-full flex flex-col bg-[#fafbfe] text-[#0b0f19] selection:bg-[#c8102e] selection:text-white"
       >
         {children}

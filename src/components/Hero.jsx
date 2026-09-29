@@ -119,21 +119,21 @@ export default function Hero({ onExploreClick, onContactClick }) {
           <Broadcast className="w-4 h-4 text-[#c8102e]" weight="duotone" />
           <span>OCTOSIGNALS TECHNOLOGIES</span>
           <span className="text-slate-300">|</span>
-          <span className="text-slate-600 font-normal">India • UAE • Oman • US</span>
+          <span className="text-slate-600 font-normal">Trusted across India, UAE and Oman</span>
         </div>
       </div>
 
-      {/* Main Cuberto Editorial Headline (Adjusted Compact Font Size) */}
+      {/* Main Editorial Headline */}
       <div className="max-w-7xl mx-auto w-full my-auto relative z-10 py-10">
         <div className="max-w-4xl flex flex-col gap-6">
           <div className="flex flex-col">
             <div className="overflow-hidden pb-1">
-              <h1 className="hero-title-line font-black text-5xl sm:text-7xl lg:text-8xl tracking-tight text-[#171717] leading-[1.02]">
+              <h1 className="hero-title-line fly-text font-black text-5xl sm:text-7xl lg:text-8xl tracking-tight text-[#171717] leading-[1.02]">
                 We Make Your
               </h1>
             </div>
             <div className="overflow-hidden flex items-center gap-4 sm:gap-5 flex-wrap mt-1 sm:mt-2 pb-2">
-              <h1 className="hero-title-line font-black text-5xl sm:text-7xl lg:text-8xl tracking-tight text-[#c8102e] leading-[1.02]">
+              <h1 className="hero-title-line fly-text font-black text-5xl sm:text-7xl lg:text-8xl tracking-tight text-[#c8102e] leading-[1.02]">
                 Signals
               </h1>
               <div className="hero-title-line inline-flex items-center justify-center px-6 py-2.5 sm:py-3 rounded-full bg-[#171717] text-white text-xl sm:text-3xl font-light italic tracking-normal border border-slate-800 shadow-xl shadow-[#171717]/20">
@@ -142,29 +142,29 @@ export default function Hero({ onExploreClick, onContactClick }) {
             </div>
           </div>
 
-          <p className="hero-subhead text-base sm:text-xl text-slate-700 max-w-2xl font-normal leading-relaxed tracking-wide">
-            Empowering Businesses with Innovative Technology Solutions. We design, build, and deliver custom software, broadcast media platforms, and AI systems that move your business in the right direction.
+          <p className="hero-subhead blur-text text-base sm:text-xl text-slate-700 max-w-2xl font-normal leading-relaxed tracking-wide">
+            We design and build technology that helps businesses to communicate more clearly, operate more efficiently, and grow with confidence.
           </p>
 
           <div className="hero-actions flex flex-wrap items-center gap-4 pt-2">
             <a
-              href="#products"
-              onClick={onExploreClick}
+              href="#services"
               className="px-8 py-4 rounded-full bg-[#c8102e] text-white text-xs sm:text-sm font-bold tracking-wider uppercase transition-all duration-300 hover:bg-[#a80c24] hover:shadow-xl hover:shadow-[#c8102e]/30 flex items-center gap-3 group"
               data-cursor="magnetic"
             >
-              <span>Explore Products</span>
+              <span>Explore Solutions</span>
               <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" weight="bold" />
             </a>
 
-            <button
-              onClick={onContactClick}
+            <a
+              href="#products"
+              onClick={onExploreClick}
               className="px-8 py-4 rounded-full bg-white text-[#171717] border border-slate-300 text-xs sm:text-sm font-bold tracking-wider uppercase transition-all duration-300 hover:border-[#c8102e] hover:text-[#c8102e] hover:bg-slate-50 flex items-center gap-2 shadow-sm"
               data-cursor="magnetic"
             >
               <Sparkle className="w-4 h-4 text-[#c8102e]" weight="duotone" />
-              <span>Discuss Solution</span>
-            </button>
+              <span>View Products</span>
+            </a>
           </div>
         </div>
       </div>
